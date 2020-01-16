@@ -1,0 +1,54 @@
+{
+  "name": "concurrency",
+  "version": "0.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf lib/ && babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts'",
+    "lint": "yarn lint:ci --fix",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch"
+  },
+  "lint-staged": {
+    "*.{html,md,yml,graphql}": [
+      "prettier --write"
+    ],
+    "*.{ts,js,json}": [
+      "eslint --fix"
+    ]
+  },
+  "babel": {
+    "extends": "@shelf/babel-config/backend"
+  },
+  "prettier": "@shelf/prettier-config",
+  "resolutions": {
+    "aws-sdk": "2.1055.0",
+    "lodash": "4.17.21"
+  },
+  "dependencies": {
+    "lodash": "4.17.21",
+    "node-fetch": "2.6.7",
+    "p-map": "4.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.17.0",
+    "@babel/core": "7.17.0",
+    "@babel/node": "7.16.8",
+    "@shelf/babel-config": "0.1.8",
+    "@shelf/eslint-config": "2.12.1",
+    "@shelf/prettier-config": "1.0.0",
+    "@shelf/tsconfig": "0.0.6",
+    "@types/aws-lambda": "8.10.95",
+    "@types/jest": "27.5.0",
+    "@types/lodash": "4.14.182",
+    "@types/node": "14",
+    "@types/node-fetch": "2.6.1",
+    "aws-sdk": "2.1055.0",
+    "eslint": "8.11.0",
+    "husky": "7.0.4",
+    "lint-staged": "12.3.5",
+    "prettier": "2.5.1",
+    "typescript": "4.6.3"
+  }
+}
