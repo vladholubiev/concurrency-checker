@@ -1,0 +1,77 @@
+# test directories
+__tests__
+^(?!@serverless/enterprise-plugin/).*test.*$ # fix for serverless-enterprise
+tests
+powered-test
+*.test.js
+*.tap.js
+*.test.ts
+*tests.html
+
+# asset directories
+docs
+doc
+website
+images
+assets
+
+# examples
+example
+examples
+
+# code coverage directories
+coverage
+.nyc_output
+
+# build scripts
+Makefile
+Gulpfile.js
+Gruntfile.js
+
+# configs
+appveyor.yml
+circle.yml
+codeship-services.yml
+codeship-steps.yml
+wercker.yml
+.tern-project
+.gitattributes
+.editorconfig
+.*ignore
+.eslintrc
+.eslintrc.yml
+.jshintrc
+.babelrc
+.flowconfig
+.documentup.json
+.yarn-metadata.json
+.travis.yml
+
+# misc
+*.md
+*.markdown
+*.sh
+*.map
+*.png
+*.jpg
+*.gif
+
+AUTHORS
+LICENSE.txt
+CopyrightNotice.txt
+NOTICE.txt
+LICENSE.md
+MIT-LICENSE
+yarn.lock
+package-lock.json
+
+# winston build for browsers
+@shelf/logger/node_modules/winston/dist
+date-fns/docs.json
+jsdoc_conf.json
+lodash/lodash.min.js
+bson/browser_build
+ajv/dist
+ajv/scripts
+*.sln
+*.un~

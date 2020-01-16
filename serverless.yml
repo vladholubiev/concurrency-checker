@@ -1,0 +1,121 @@
+service: xxxxxx
+
+provider:
+  timeout: 10
+  memorySize: 1536
+  name: aws
+  stage: staging
+  region: us-east-1
+  runtime: nodejs12.x
+  endpointType: REGIONAL
+  versionFunctions: false
+  tracing:
+    lambda: true
+  deploymentBucket: gs-sls-deployments
+  logRetentionInDays: 365
+  apiGateway:
+    minimumCompressionSize: 0
+  tags:
+    # For Datadog APM
+    env: ${opt:stage}
+    service: xxxxxx
+  environment:
+    ENVIRONMENT: ${opt:stage}
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1'
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'xray:PutTraceSegments'
+        - 'xray:PutTelemetryRecords'
+      Resource:
+        - '*'
+
+    - Effect: 'Allow'
+      Action:
+        - 'kms:CreateGrant'
+        - 'kms:Decrypt'
+        - 'kms:Encrypt'
+        - 'kms:GenerateDataKey'
+      Resource:
+        - 'arn:aws:kms:*:*:key/alias/aws/ssm'
+        - 'arn:aws:kms:*:*:key/${file(./config.js):MAIN_KMS_KEY_ID}'
+
+package:
+  artifact: artifact.zip
+
+plugins:
+  - serverless-associate-waf
+  - serverless-iam-roles-per-function
+
+custom:
+  associateWaf:
+    name: ${opt:stage}-generic-owasp-acl
+  serverless-iam-roles-per-function:
+    defaultInherit: true
+
+functions:
+  someLambdaName:
+    handler: lib/some-lambda-name/handler.handler
+    name: ${opt:stage}-${self:service}-someLambdaName
+    events:
+      - http:
+          path: /{id}
+          method: post
+          integration: lambda-proxy
+          cors: true
+          authorizer:
+            arn: ${file(./config.js):getLambdaAuthorizerARN}
+            resultTtlInSeconds: 0
+          request:
+            parameters:
+              paths:
+                id: true
+    iamRoleStatements:
+      - Effect: 'Allow'
+        Action:
+          - 'ssm:GetParameters'
+        Resource:
+          - 'arn:aws:ssm:*:*:parameter/${opt:stage}/common/mongo_url/stitch_full'
+      - Effect: 'Allow'
+        Action:
+          - 'dynamodb:BatchWriteItem'
+          - 'dynamodb:Query'
+          - 'dynamodb:UpdateItem'
+        Resource:
+          - 'arn:aws:dynamodb:*:*:table/${opt:stage}_gems_xxxxxx'
+      - Effect: 'Allow'
+        Action:
+          - 'sns:Publish'
+        Resource:
+          - '${file(./config.js):snsPrefix}_gem-rating-added'
+
+resources:
+  Resources:
+    ApiGatewayRestApi:
+      Type: AWS::ApiGateway::RestApi
+      Properties:
+        Name: ${opt:stage}-${self:service}
+    GatewayResponseDefault4XX:
+      Type: 'AWS::ApiGateway::GatewayResponse'
+      Properties:
+        RestApiId:
+          Ref: 'ApiGatewayRestApi'
+        ResponseType: DEFAULT_4XX
+        ResponseParameters:
+          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Methods: "'*'"
+        ResponseTemplates:
+          application/json: '{"message":$context.error.messageString}'
+    GatewayResponseDefault5XX:
+      Type: 'AWS::ApiGateway::GatewayResponse'
+      Properties:
+        RestApiId:
+          Ref: 'ApiGatewayRestApi'
+        ResponseType: DEFAULT_5XX
+        ResponseParameters:
+          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Methods: "'*'"
+        ResponseTemplates:
+          application/json: '{"message":$context.error.messageString}'
