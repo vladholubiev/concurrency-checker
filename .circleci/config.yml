@@ -88,6 +88,27 @@ commands:
               --stage-name="$ENVIRONMENT" \
               --patch-operations="op=replace,path=/tracingEnabled,value=true"
 
+  create_base_path_mapping:
+    parameters:
+      api_name:
+        type: string
+      domain_name:
+        type: string
+    steps:
+      - run:
+          name: Create API GW Base Path Mapping
+          command: |
+            API_NAME="$ENVIRONMENT-<< parameters.api_name >>"
+            API_ID=$(aws apigateway get-rest-apis \
+              --query="(items[?name == '$API_NAME'].id)" \
+              --output text
+            )
+            aws apigateway create-base-path-mapping \
+              --domain-name="<< parameters.domain_name >>" \
+              --rest-api-id="$API_ID" \
+              --base-path="<< parameters.api_name >>" \
+              --stage="$ENVIRONMENT" || true
+
 version: 2.1
 
 jobs:
@@ -185,25 +206,35 @@ jobs:
       - install_sls
       - run: yarn deploy
 
-  enable_api_gw_xray_staging:
+  api_gw_config_staging:
     executor: aws-cli/default
     environment:
       - ENVIRONMENT: staging
     steps:
       - checkout
       - aws-cli/setup
+
       - enable_api_gw_xray:
           api_name: xxxxxx
 
-  enable_api_gw_xray_prod:
+      - create_base_path_mapping:
+          api_name: xxxxxx
+          domain_name: api.gsstaging.net
+
+  api_gw_config_prod:
     executor: aws-cli/default
     environment:
       - ENVIRONMENT: prod
     steps:
       - checkout
       - aws-cli/setup
+
       - enable_api_gw_xray:
           api_name: xxxxxx
+
+      - create_base_path_mapping:
+          api_name: xxxxxx
+          domain_name: api.shelf.io
 
   run_api_tests_staging:
     executor:
@@ -298,12 +329,12 @@ workflows:
                 environment_type: production
                 job_type: deployment
 
-      - enable_api_gw_xray_staging:
+      - api_gw_config_staging:
           context: staging-xxxxxx
           requires:
             - deploy_staging
 
-      - enable_api_gw_xray_prod:
+      - api_gw_config_prod:
           context: prod-xxxxxx
           requires:
             - deploy_prod
