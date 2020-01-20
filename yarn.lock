@@ -976,6 +976,23 @@
   dependencies:
     any-observable "^0.3.0"
 
+"@shelf/aws-sdk-helpers@3.9.2":
+  version "3.9.2"
+  resolved "https://registry.yarnpkg.com/@shelf/aws-sdk-helpers/-/aws-sdk-helpers-3.9.2.tgz#2aa1abd055297e3f0754895bc37fd748cc403b9f"
+  integrity sha512-wy+dYO8KS6IeBkDYMlOUXB8ofgVWlGivENnj+jieKsajdlnIY1NlRWG6mryR5rLW8YclHSdPpLxBWqFQpL6A0Q==
+  dependencies:
+    "@shelf/aws-sns-message-attributes" "1.0.2"
+    content-disposition "0.5.3"
+    json.date-extensions "1.2.2"
+    lodash "4.17.15"
+    stripquotes "0.2.8"
+    uuid "3.3.3"
+
+"@shelf/aws-sns-message-attributes@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@shelf/aws-sns-message-attributes/-/aws-sns-message-attributes-1.0.2.tgz#fe4950f5daca45bcfef3dfd5866e5c650dc8ef9d"
+  integrity sha512-BZBteHgiNhs3vPHWVAXL1iO78tiubyx7dB8bt6FYwx4wnKd8qJoeMdxiQjP3iOGppOtxosJROyeJ+tO4S8KZZg==
+
 "@shelf/eslint-config@0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@shelf/eslint-config/-/eslint-config-0.14.0.tgz#2787832b2b7f21bee68aa57b9f922f7a5d3b5daa"
@@ -1830,6 +1847,13 @@ contains-path@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/contains-path/-/contains-path-0.1.0.tgz#fe8cf184ff6670b6baef01a9d4861a5cbec4120a"
   integrity sha1-/ozxhP9mcLa67wGp1IYaXL7EEgo=
+
+content-disposition@0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/content-disposition/-/content-disposition-0.5.3.tgz#e130caf7e7279087c5616c2007d0485698984fbd"
+  integrity sha512-ExO0774ikEObIAEV9kDo50o+79VCUdEB6n6lzKgGwupcVeRlhrj3qGAfwq8G6uBJjkqLrhT0qEYFcWng8z1z0g==
+  dependencies:
+    safe-buffer "5.1.2"
 
 convert-source-map@^1.1.0, convert-source-map@^1.4.0, convert-source-map@^1.7.0:
   version "1.7.0"
@@ -3837,6 +3861,11 @@ json-stringify-safe@~5.0.1:
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
+json.date-extensions@1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/json.date-extensions/-/json.date-extensions-1.2.2.tgz#5c5363f6f40af260c5450a87d098dd69abc99a0e"
+  integrity sha1-XFNj9vQK8mDFRQqH0JjdaavJmg4=
+
 json5@^2.1.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.1.1.tgz#81b6cb04e9ba496f1c7005d07b4368a2638f90b6"
@@ -5115,15 +5144,15 @@ rxjs@^6.3.3, rxjs@^6.5.3:
   dependencies:
     tslib "^1.9.0"
 
+safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
+  integrity sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==
+
 safe-buffer@^5.0.1, safe-buffer@^5.1.2:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.2.0.tgz#b74daec49b1148f88c64b68d49b1e815c1f2f519"
   integrity sha512-fZEwUGbVl7kouZs1jCdMLdt95hdIv0ZeHg6L7qPeciMZhZ+/gdesW4wgTARkrFWEpspjEATAzUGPG8N2jJiwbg==
-
-safe-buffer@~5.1.0, safe-buffer@~5.1.1:
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
-  integrity sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==
 
 safe-regex@^1.1.0:
   version "1.1.0"
@@ -5553,6 +5582,11 @@ strip-json-comments@^3.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.0.1.tgz#85713975a91fb87bf1b305cca77395e40d2a64a7"
   integrity sha512-VTyMAUfdm047mwKl+u79WIdrZxtFtn+nBxHeb844XBQ9uMNTuTHdx2hc5RiAJYqwTj3wc/xe5HLSdJSkJ+WfZw==
 
+stripquotes@0.2.8:
+  version "0.2.8"
+  resolved "https://registry.yarnpkg.com/stripquotes/-/stripquotes-0.2.8.tgz#cd5be1499471dfed63fbf85b4637711635a8b3d2"
+  integrity sha1-zVvhSZRx3+1j+/hbRjdxFjWos9I=
+
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
@@ -5831,7 +5865,7 @@ uuid@3.3.2:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
   integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
 
-uuid@^3.3.2, uuid@^3.3.3:
+uuid@3.3.3, uuid@^3.3.2, uuid@^3.3.3:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.3.tgz#4568f0216e78760ee1dbf3a4d2cf53e224112866"
   integrity sha512-pW0No1RGHgzlpHJO1nsVrHKpOEIxkGg1xB+v0ZmdNH5OAeAwzAVrCnI2/6Mtx+Uys6iaylxa+D3g4j63IKKjSQ==
