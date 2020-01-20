@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const {getAccountId} = require('@gemshelf/aws-sdk-helpers/lib/clients/sts');
-const {getKeyIdByAlias} = require('@gemshelf/aws-sdk-helpers/lib/kms');
+const {getAccountId} = require('@shelf/aws-sdk-helpers/lib/clients/sts');
+const {getKeyIdByAlias} = require('@shelf/aws-sdk-helpers/lib/kms');
 
 module.exports.MAIN_KMS_KEY_ID = () => {
   const stage = process.env.ENVIRONMENT;
