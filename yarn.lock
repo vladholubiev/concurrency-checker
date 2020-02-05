@@ -1083,15 +1083,16 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@shelf/aws-sdk-helpers@3.9.4":
-  version "3.9.4"
-  resolved "https://registry.yarnpkg.com/@shelf/aws-sdk-helpers/-/aws-sdk-helpers-3.9.4.tgz#4bf2c997d9d6589a0969bdb9a8774c8d86434b10"
-  integrity sha512-k/yo7ofwDxHsJzc03GgWM1QfkOBtezYUMDYSnfQZ5fOL66kIJpzkpEKM29P7gtgbLPfnhdnyBmsIBGQrJJ+qTw==
+"@shelf/aws-sdk-helpers@3.9.11":
+  version "3.9.11"
+  resolved "https://registry.yarnpkg.com/@shelf/aws-sdk-helpers/-/aws-sdk-helpers-3.9.11.tgz#ee6857f8b94135dfe532679c49513cb872823e82"
+  integrity sha512-O7DdlLcsltVK0bO57uDKuacOEjB9HQGllVJPtYDCIAX8zqG6MjKlh5RZ9WEVa1PlzYJI+XXzK4mRPBDU6mL3Jg==
   dependencies:
     "@shelf/aws-sns-message-attributes" "1.0.2"
     content-disposition "0.5.3"
     json.date-extensions "1.2.2"
     lodash "4.17.15"
+    s3urls "1.5.2"
     stripquotes "0.2.8"
     uuid "3.4.0"
 
@@ -1510,7 +1511,7 @@ atob@^2.1.2:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-aws-sdk@2.536.0:
+aws-sdk@2.536.0, aws-sdk@^2.0.4:
   version "2.536.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.536.0.tgz#8ef8465607553408e79cdbe90d661941c32c5cb8"
   integrity sha512-d91ASAgDtjP5Al8nRtdOhnS6m7XczqdmVfkyFtd7GlWJ2jy2NxQ+PI4QVp7n/74BNRSSLoyxmCqz2Ulqu3TOsQ==
@@ -4279,7 +4280,7 @@ minimist@0.0.8:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
   integrity sha1-hX/Kv8M5fSYluCKCYuhqp6ARsF0=
 
-minimist@^1.1.1, minimist@^1.2.0:
+minimist@^1.1.0, minimist@^1.1.1, minimist@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
   integrity sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
@@ -5178,6 +5179,21 @@ rxjs@^6.3.3, rxjs@^6.5.3:
   integrity sha512-naMQXcgEo3csAEGvw/NydRA0fuS2nDZJiw1YUWFKU7aPPAPGZEsD4Iimit96qwCieH6y614MCLYwdkrWx7z/7Q==
   dependencies:
     tslib "^1.9.0"
+
+s3signed@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/s3signed/-/s3signed-0.1.0.tgz#ae03b86259413215ed43e99285c8c347579735fb"
+  integrity sha1-rgO4YllBMhXtQ+mShcjDR1eXNfs=
+  dependencies:
+    aws-sdk "^2.0.4"
+
+s3urls@1.5.2:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/s3urls/-/s3urls-1.5.2.tgz#182a991208fc1ab5214443eb250fc8f53b4bc9ea"
+  integrity sha1-GCqZEgj8GrUhREPrJQ/I9TtLyeo=
+  dependencies:
+    minimist "^1.1.0"
+    s3signed "^0.1.0"
 
 safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
