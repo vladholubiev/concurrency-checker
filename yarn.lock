@@ -1083,10 +1083,10 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@shelf/aws-sdk-helpers@3.9.11":
-  version "3.9.11"
-  resolved "https://registry.yarnpkg.com/@shelf/aws-sdk-helpers/-/aws-sdk-helpers-3.9.11.tgz#ee6857f8b94135dfe532679c49513cb872823e82"
-  integrity sha512-O7DdlLcsltVK0bO57uDKuacOEjB9HQGllVJPtYDCIAX8zqG6MjKlh5RZ9WEVa1PlzYJI+XXzK4mRPBDU6mL3Jg==
+"@shelf/aws-sdk-helpers@3.9.12":
+  version "3.9.12"
+  resolved "https://registry.yarnpkg.com/@shelf/aws-sdk-helpers/-/aws-sdk-helpers-3.9.12.tgz#a23533aebc78b0add48b88ce03ce2fb1b5144d2c"
+  integrity sha512-fiXsspC2Xipv3BBuCj/Eg0K870x3/s+VIQ4dA6teDlwY+FdstDnTfz54xyAu4fXQGwkCfilu3bS965i9swFqXA==
   dependencies:
     "@shelf/aws-sns-message-attributes" "1.0.2"
     content-disposition "0.5.3"
