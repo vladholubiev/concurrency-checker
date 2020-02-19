@@ -5279,10 +5279,10 @@ semver@^7.1.1:
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.1.1.tgz#29104598a197d6cbe4733eeecbe968f7b43a9667"
   integrity sha512-WfuG+fl6eh3eZ2qAf6goB7nhiCd7NPXhmyFxigB/TOkQyeLP8w8GsVehvtGNtnNmyboz4TgeK40B1Kbql/8c5A==
 
-serverless-associate-waf@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/serverless-associate-waf/-/serverless-associate-waf-1.1.1.tgz#599d3cd31d546a5d36c8d03ffd94ca964928b9fa"
-  integrity sha512-EhztkxKfGGqwuzGUqYToQyket2VNhK9T1FSh7EQDllNq4dI+v28EVM/lIzHYIEzVq7Mwka0KjYH1kJ8PL81W/A==
+serverless-associate-waf@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/serverless-associate-waf/-/serverless-associate-waf-1.2.0.tgz#672e6000806cb950b3d54a09a7f65a10c0f0fd2d"
+  integrity sha512-IgyFi9EHlsrfoj9aHV0GClC6FSrbZjXBPsXkzkxAv/wHq8tZ5OvcbbapsYkte+kFC3QdHl97tA1t+XeV78EiJQ==
   dependencies:
     chalk "^2.4.2"
 
