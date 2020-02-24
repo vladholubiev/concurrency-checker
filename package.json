@@ -67,7 +67,7 @@
     "prettier": "1.19.1",
     "serverless-associate-waf": "1.2.0",
     "serverless-iam-roles-per-function": "2.0.2",
-    "typescript": "3.7.5"
+    "typescript": "3.8.2"
   },
   "resolutions": {
     "aws-sdk": "2.536.0",
