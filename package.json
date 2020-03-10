@@ -49,9 +49,9 @@
   "dependencies": {},
   "devDependencies": {
     "@babel/cli": "7.8.4",
-    "@babel/core": "7.8.4",
-    "@babel/node": "7.8.4",
-    "@babel/preset-env": "7.8.4",
+    "@babel/core": "7.8.7",
+    "@babel/node": "7.8.7",
+    "@babel/preset-env": "7.8.7",
     "@babel/preset-typescript": "7.8.3",
     "@shelf/aws-sdk-helpers": "3.9.12",
     "@shelf/eslint-config": "0.14.2",
@@ -63,11 +63,11 @@
     "husky": "4.2.3",
     "jest": "25.1.0",
     "jest-junit": "10.0.0",
-    "lint-staged": "10.0.7",
+    "lint-staged": "10.0.8",
     "prettier": "1.19.1",
     "serverless-associate-waf": "1.2.0",
     "serverless-iam-roles-per-function": "2.0.2",
-    "typescript": "3.8.2"
+    "typescript": "3.8.3"
   },
   "resolutions": {
     "aws-sdk": "2.536.0",
