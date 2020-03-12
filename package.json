@@ -53,7 +53,7 @@
     "@babel/node": "7.8.4",
     "@babel/preset-env": "7.8.4",
     "@babel/preset-typescript": "7.8.3",
-    "@shelf/aws-sdk-helpers": "3.9.12",
+    "@shelf/aws-sdk-helpers": "3.10.5",
     "@shelf/eslint-config": "0.14.2",
     "@types/jest": "25.1.4",
     "@types/node": "12",
