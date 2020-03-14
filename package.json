@@ -27,11 +27,11 @@
     }
   },
   "lint-staged": {
-    "*.{html,json,md,yml,graphql}": [
+    "*.{html,md,yml,graphql}": [
       "prettier --write",
       "git add"
     ],
-    "*.{ts,js}": [
+    "*.{ts,js,json}": [
       "eslint --fix",
       "git add"
     ]
@@ -45,6 +45,10 @@
       "<rootDir>/common-mocks.js"
     ],
     "testEnvironment": "node"
+  },
+  "resolutions": {
+    "aws-sdk": "2.536.0",
+    "lodash": "4.17.15"
   },
   "dependencies": {},
   "devDependencies": {
@@ -68,9 +72,5 @@
     "serverless-associate-waf": "1.2.0",
     "serverless-iam-roles-per-function": "2.0.2",
     "typescript": "3.8.2"
-  },
-  "resolutions": {
-    "aws-sdk": "2.536.0",
-    "lodash": "4.17.15"
   }
 }
