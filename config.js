@@ -11,7 +11,7 @@ module.exports.MAIN_KMS_KEY_ID = () => {
 module.exports.getLambdaAuthorizerARN = () => {
   const stage = process.env.ENVIRONMENT;
 
-  return getAccountId().then(accountId => {
+  return getAccountId().then((accountId) => {
     return `arn:aws:lambda:us-east-1:${accountId}:function:shelf-auth-${stage}-authorizeByToken`;
   });
 };
@@ -19,5 +19,5 @@ module.exports.getLambdaAuthorizerARN = () => {
 module.exports.snsPrefix = () => {
   const stage = process.env.ENVIRONMENT;
 
-  return getAccountId().then(id => `arn:aws:sns:us-east-1:${id}:${stage}`);
+  return getAccountId().then((id) => `arn:aws:sns:us-east-1:${id}:${stage}`);
 };

@@ -1,4 +1,4 @@
-module.exports = wallaby => {
+module.exports = (wallaby) => {
   process.env.NODE_ENV = 'test';
 
   return {
@@ -21,7 +21,7 @@ module.exports = wallaby => {
       process.env.API_HOST = 'api.gsstaging.net';
     },
     preprocessors: {
-      '**/*.js': file =>
+      '**/*.js': (file) =>
         require('@babel/core').transform(file.content, {
           sourceMap: true,
           compact: false,
