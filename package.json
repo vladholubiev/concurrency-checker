@@ -9,7 +9,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf lib/ && babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts'",
-    "coverage": "jest --coverage",
+    "coverage": "yarn test --coverage",
     "deploy": "serverless deploy --stage $ENVIRONMENT --package .serverless",
     "lint": "eslint . --fix --ext .js,.json,.ts --quiet",
     "lint:ci": "eslint . --ext .js,.json,.ts --quiet",
