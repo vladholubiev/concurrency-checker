@@ -1,7 +1,7 @@
 orbs:
   node: circleci/node@1.1.6
   aws-cli: circleci/aws-cli@0.1.22
-  jira: circleci/jira@1.1.2
+  jira: circleci/jira@1.1.3
 
 commands:
   install_deps:
