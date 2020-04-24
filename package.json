@@ -58,7 +58,7 @@
     "@babel/cli": "7.8.4",
     "@babel/core": "7.9.0",
     "@babel/node": "7.8.7",
-    "@babel/preset-env": "7.9.0",
+    "@babel/preset-env": "7.9.5",
     "@babel/preset-typescript": "7.9.0",
     "@shelf/aws-sdk-helpers": "3.10.8",
     "@shelf/eslint-config": "0.14.2",
