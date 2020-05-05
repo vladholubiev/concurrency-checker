@@ -274,7 +274,7 @@ workflows:
           context: npm
 
       - package_staging:
-          context: staging-xxxxxx
+          context: staging
           requires:
             - create_artifact_zip
           filters:
@@ -288,7 +288,7 @@ workflows:
                 job_type: build
 
       - package_prod:
-          context: staging-xxxxxx
+          context: staging
           requires:
             - create_artifact_zip
           filters:
@@ -302,7 +302,7 @@ workflows:
                 job_type: build
 
       - deploy_staging:
-          context: staging-xxxxxx
+          context: staging
           requires:
             - tests
             - package_staging
@@ -316,7 +316,7 @@ workflows:
                 job_type: deployment
 
       - deploy_prod:
-          context: prod-xxxxxx
+          context: prod
           requires:
             - tests
             - package_prod
@@ -330,21 +330,21 @@ workflows:
                 job_type: deployment
 
       - api_gw_config_staging:
-          context: staging-xxxxxx
+          context: staging
           requires:
             - deploy_staging
 
       - api_gw_config_prod:
-          context: prod-xxxxxx
+          context: prod
           requires:
             - deploy_prod
 
       - run_api_tests_staging:
-          context: staging-xxxxxx
+          context: staging
           requires:
             - deploy_staging
 
       - run_api_tests_prod:
-          context: prod-xxxxxx
+          context: prod
           requires:
             - deploy_prod
