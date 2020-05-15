@@ -1283,10 +1283,10 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@shelf/aws-sdk-helpers@3.10.13":
-  version "3.10.13"
-  resolved "https://registry.yarnpkg.com/@shelf/aws-sdk-helpers/-/aws-sdk-helpers-3.10.13.tgz#3b52e76d52b9f94ee89d3397c866ec47ec3c3d5c"
-  integrity sha512-P+6jTqaStCiyCAHGjsFePL9mxsoO8sGNVQDjypGAdUQYiEsS9IrOKlBWBWki+TTtcXzZZn4S70TKuCKkRunnHg==
+"@shelf/aws-sdk-helpers@3.10.15":
+  version "3.10.15"
+  resolved "https://registry.yarnpkg.com/@shelf/aws-sdk-helpers/-/aws-sdk-helpers-3.10.15.tgz#541fa21d13280e6889bf9b1da76ddde3bf2f4690"
+  integrity sha512-9rhDoV6JVApAz0lfxHumMVugxMXWGkCzsBuOATiNoByunwARi6me79neM2skF/poUFGa3cP/Oyxmy1tXDYZpjg==
   dependencies:
     "@shelf/aws-sns-message-attributes" "1.0.2"
     "@shelf/content-disposition" "^0.0.4"
@@ -1336,10 +1336,10 @@
   dependencies:
     aws-xray-sdk-core "2.5.0"
 
-"@shelf/middy-base@0.4.49":
-  version "0.4.49"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-base/-/middy-base-0.4.49.tgz#d0442804199e69915f81c977fac0d4d246e4634a"
-  integrity sha512-jZ5sscZ5mFIDQw6yiw5PYbE3AkiLJ3XUx7Wp9xSg+U2539qRsSVbhBj+s4FhUjGUJrJT7RQidBYWR0TA0CMhnQ==
+"@shelf/middy-base@0.4.57":
+  version "0.4.57"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-base/-/middy-base-0.4.57.tgz#4c4c028b6df6641ce676f5090a2a4db9d78aa559"
+  integrity sha512-iwjtcMY79OfFjDKTRmk+g2tod3515c92Ok+FCd1iZeGaaamPcYmcDb+ARPZXBvlECNBBV3mmYOMiz6pwsbPNng==
   dependencies:
     "@middy/do-not-wait-for-empty-event-loop" "1.0.0-beta.8"
     "@middy/http-cors" "1.0.0-beta.8"
@@ -1349,7 +1349,7 @@
     "@shelf/lambda-xray-instrument" "0.0.13"
     "@shelf/middy-http-error-handler" "0.1.84"
     "@shelf/middy-logger" "0.1.31"
-    "@shelf/middy-unmarshall-authorizer" "^0.1.76"
+    "@shelf/middy-unmarshall-authorizer" "^0.1.84"
     lodash "4.17.15"
 
 "@shelf/middy-http-error-handler@0.1.84":
@@ -1364,12 +1364,12 @@
   resolved "https://registry.yarnpkg.com/@shelf/middy-logger/-/middy-logger-0.1.31.tgz#b1c881b5a5120aef32692ac7ffd5bbe470845566"
   integrity sha512-4tS0ojsG42gzzlqYVXJf8YPI2mXNuGPLokWFuR8yO42Pg4qPZogj7BrrmhnyZ5CQgBYgRI9DALALC46AtcHMow==
 
-"@shelf/middy-unmarshall-authorizer@^0.1.76":
-  version "0.1.76"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-unmarshall-authorizer/-/middy-unmarshall-authorizer-0.1.76.tgz#d86469b7a21262f0e0df53fadd763e04d1b0d5c3"
-  integrity sha512-QgPW4yUsOFA4RZzHKKqaOoK4NDgwk0f1nplMziDpLjkzofRuyfyemuq+hCnvfWpjf5Yv7SUKFCfBXoJFG2pCZw==
+"@shelf/middy-unmarshall-authorizer@^0.1.84":
+  version "0.1.84"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-unmarshall-authorizer/-/middy-unmarshall-authorizer-0.1.84.tgz#d061496d9f91da116f5fa98772c351639ec8800f"
+  integrity sha512-kTuub9Ee4Tio/qtUPPQZb6PR4U/V5zDna2jRl4AbtgGCEdfAzGxvr2LcdoWzQu0JM8mBic++vRblMXSGXyXHFw==
   dependencies:
-    "@shelf/types" "^0.27.43"
+    "@shelf/types" "^0.29.5"
     json.date-extensions "1.2.2"
 
 "@shelf/prettier-config@0.0.7":
@@ -1377,10 +1377,10 @@
   resolved "https://registry.yarnpkg.com/@shelf/prettier-config/-/prettier-config-0.0.7.tgz#b081d07bfc88e06981e8e207490b7189affeb71c"
   integrity sha512-T931rkdqMq2OWKoocQYxAryLrtqQ7jh642hBo1fDJWNVAWzgenQVpl7smlyXlQr79ti5Nx/vUUfo+4F5Hvnk7Q==
 
-"@shelf/types@^0.27.43":
-  version "0.27.43"
-  resolved "https://registry.yarnpkg.com/@shelf/types/-/types-0.27.43.tgz#bb8c40120137ad6af3bb8fe6f33a6d99b3ef8cc8"
-  integrity sha512-mL36spEwyLQH+B1W36ITQk4EF9A4buHCDy0hEiS2cQWwKRuUcJ6uRFP2hWBM+vNE7XQygLVNdaAmayLtFCjJ3A==
+"@shelf/types@^0.29.5":
+  version "0.29.5"
+  resolved "https://registry.yarnpkg.com/@shelf/types/-/types-0.29.5.tgz#14fe01d1524dd12ef4bd2a38157fc51216753b40"
+  integrity sha512-L1agsXcnhgfwIxwio2tbYKAlUq1DPYOqoe2/Ov0iqdEaLEcryKbrYpRTdntP0JaRHrlsTvlOq5/Ea9RT6rUmZA==
 
 "@sinonjs/commons@^1.7.0":
   version "1.7.0"
