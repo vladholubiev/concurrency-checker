@@ -340,11 +340,11 @@ workflows:
             - deploy_prod
 
       - run_api_tests_staging:
-          context: staging
+          context: org-global
           requires:
             - deploy_staging
 
       - run_api_tests_prod:
-          context: prod
+          context: org-global
           requires:
             - deploy_prod
