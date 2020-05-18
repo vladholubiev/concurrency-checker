@@ -92,6 +92,8 @@ commands:
     parameters:
       api_name:
         type: string
+      base_path:
+        type: string
       domain_name:
         type: string
     steps:
@@ -106,7 +108,7 @@ commands:
             aws apigateway create-base-path-mapping \
               --domain-name="<< parameters.domain_name >>" \
               --rest-api-id="$API_ID" \
-              --base-path="<< parameters.api_name >>" \
+              --base-path="<< parameters.base_path >>" \
               --stage="$ENVIRONMENT" || true
 
 version: 2.1
