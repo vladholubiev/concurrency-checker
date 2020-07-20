@@ -49,7 +49,7 @@
   },
   "resolutions": {
     "aws-sdk": "2.631.0",
-    "lodash": "4.17.15"
+    "lodash": "4.17.19"
   },
   "dependencies": {
     "@shelf/middy-base": "0.4.57"
