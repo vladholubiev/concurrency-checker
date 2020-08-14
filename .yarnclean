@@ -29,23 +29,24 @@ Gulpfile.js
 Gruntfile.js
 
 # configs
+.*ignore
+.babelrc
+.documentup.json
+.editorconfig
+.eslintrc
+.eslintrc.yml
+.flowconfig
+.gitattributes
+.jshintrc
+.tern-project
+.travis.yml
+.yarn-metadata.json
 appveyor.yml
+bower.json
 circle.yml
 codeship-services.yml
 codeship-steps.yml
 wercker.yml
-.tern-project
-.gitattributes
-.editorconfig
-.*ignore
-.eslintrc
-.eslintrc.yml
-.jshintrc
-.babelrc
-.flowconfig
-.documentup.json
-.yarn-metadata.json
-.travis.yml
 
 # misc
 *.md
@@ -84,3 +85,9 @@ countries-list/dist/data.sql
 
 async/dist/async.min.js
 async/dist/async.mjs
+
+buffer/bin
+buffer/test
+
+dot-object/dist
+dot-object/test

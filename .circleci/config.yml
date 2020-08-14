@@ -40,9 +40,9 @@ commands:
           name: cleanup node_modules junk
           command: |
             npx del-cli \
-            "node_modules/**/@types/**" \ # we do not need typings in lambda runtime
-            "node_modules/**/*.d.ts" \
-            "node_modules/**/.yarn-integrity"
+              "node_modules/**/@types/**" \
+              "node_modules/**/*.d.ts" \
+              "node_modules/**/.yarn-integrity"
 
       - run:
           name: create artifact zip with code and node modules
