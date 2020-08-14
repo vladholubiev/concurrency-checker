@@ -48,7 +48,7 @@
     "testEnvironment": "node"
   },
   "resolutions": {
-    "aws-sdk": "2.631.0",
+    "aws-sdk": "2.721.0",
     "lodash": "4.17.19"
   },
   "dependencies": {
@@ -65,7 +65,7 @@
     "@shelf/prettier-config": "0.0.7",
     "@types/jest": "26.0.9",
     "@types/node": "12",
-    "aws-sdk": "2.631.0",
+    "aws-sdk": "2.721.0",
     "babel-jest": "26.2.2",
     "eslint": "7.0.0",
     "husky": "4.2.5",
