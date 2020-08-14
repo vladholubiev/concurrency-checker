@@ -75,3 +75,9 @@ ajv/dist
 ajv/scripts
 *.sln
 *.un~
+
+uuid/dist/esm-browser
+uuid/dist/esm-node
+uuid/dist/umd
+
+countries-list/dist/data.sql
