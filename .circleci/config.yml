@@ -42,7 +42,8 @@ commands:
             npx del-cli \
               "node_modules/**/@types/**" \
               "node_modules/**/*.d.ts" \
-              "node_modules/**/.yarn-integrity"
+              "node_modules/**/.yarn-integrity" \
+              "node_modules/**/.bin"
 
       - run:
           name: create artifact zip with code and node modules
