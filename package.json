@@ -60,7 +60,7 @@
     "@babel/node": "7.10.4",
     "@babel/preset-env": "7.10.4",
     "@babel/preset-typescript": "7.10.4",
-    "@shelf/aws-sdk-helpers": "3.10.15",
+    "@shelf/aws-sdk-helpers": "3.13.52",
     "@shelf/eslint-config": "0.14.2",
     "@shelf/prettier-config": "0.0.7",
     "@types/jest": "26.0.9",
