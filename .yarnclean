@@ -81,3 +81,6 @@ uuid/dist/esm-node
 uuid/dist/umd
 
 countries-list/dist/data.sql
+
+async/dist/async.min.js
+async/dist/async.mjs
