@@ -1373,27 +1373,27 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@shelf/aws-sdk-helpers@3.10.15":
-  version "3.10.15"
-  resolved "https://registry.yarnpkg.com/@shelf/aws-sdk-helpers/-/aws-sdk-helpers-3.10.15.tgz#541fa21d13280e6889bf9b1da76ddde3bf2f4690"
-  integrity sha512-9rhDoV6JVApAz0lfxHumMVugxMXWGkCzsBuOATiNoByunwARi6me79neM2skF/poUFGa3cP/Oyxmy1tXDYZpjg==
+"@shelf/aws-sdk-helpers@3.13.52":
+  version "3.13.52"
+  resolved "https://registry.yarnpkg.com/@shelf/aws-sdk-helpers/-/aws-sdk-helpers-3.13.52.tgz#fdcc5557b6a3918f470149f144922b0b6af6641f"
+  integrity sha512-kPIVfTeUzIep+ah/Dve7JrxsfpNlRFix5/NCNABGi3Bqd9myj3vNaIadIJznXOUql/xnM0r5kY3LbNWoDsJhpw==
   dependencies:
     "@shelf/aws-sns-message-attributes" "1.0.2"
-    "@shelf/content-disposition" "^0.0.4"
+    "@shelf/content-disposition" "^0.0.5"
     json.date-extensions "1.2.2"
-    lodash "4.17.15"
+    lodash "4.17.19"
     s3urls "1.5.2"
-    uuid "8.0.0"
+    uuid "8.3.0"
 
 "@shelf/aws-sns-message-attributes@1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@shelf/aws-sns-message-attributes/-/aws-sns-message-attributes-1.0.2.tgz#fe4950f5daca45bcfef3dfd5866e5c650dc8ef9d"
   integrity sha512-BZBteHgiNhs3vPHWVAXL1iO78tiubyx7dB8bt6FYwx4wnKd8qJoeMdxiQjP3iOGppOtxosJROyeJ+tO4S8KZZg==
 
-"@shelf/content-disposition@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@shelf/content-disposition/-/content-disposition-0.0.4.tgz#ae6d34b07331a7538bf324f53094b81dfb86aa4e"
-  integrity sha512-Nse/gVW8X9UqTKbntg0C0kgpx6WqSFjxMYAFqFWDhd8cscSUqm+N+bEOqGOweEdlM7VYpz3JdKisWwpNLckYkQ==
+"@shelf/content-disposition@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@shelf/content-disposition/-/content-disposition-0.0.5.tgz#83ec580f8c6e6f74574e36bf706fbf5b4b640d4f"
+  integrity sha512-bhVLjpUvMS8ufgEIWsYF6zUz7N4pXo3v9FgLR2leJpmxXR/hyPZ3bc/K6bvt/Wby79XHa4ipRvG1c+2BIa2rUQ==
   dependencies:
     content-disposition "0.5.3"
     lodash.deburr "4.1.0"
@@ -6582,10 +6582,10 @@ uuid@3.3.2:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
   integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
 
-uuid@8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.0.0.tgz#bc6ccf91b5ff0ac07bbcdbf1c7c4e150db4dbb6c"
-  integrity sha512-jOXGuXZAWdsTH7eZLtyXMqUb9EcWMGZNbL9YcGBJl4MH4nrxHmZJhEHvyLFrkxo+28uLb/NYRcStH48fnD0Vzw==
+uuid@8.3.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.0.tgz#ab738085ca22dc9a8c92725e459b1d507df5d6ea"
+  integrity sha512-fX6Z5o4m6XsXBdli9g7DtWgAx+osMsRRZFKma1mIUsLCz6vRvv+pz5VNbyu9UEDzpMWulZfvpgb/cmDXVulYFQ==
 
 uuid@^3.3.2, uuid@^3.3.3:
   version "3.3.3"
