@@ -1373,15 +1373,15 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@shelf/aws-sdk-helpers@3.13.52":
-  version "3.13.52"
-  resolved "https://registry.yarnpkg.com/@shelf/aws-sdk-helpers/-/aws-sdk-helpers-3.13.52.tgz#fdcc5557b6a3918f470149f144922b0b6af6641f"
-  integrity sha512-kPIVfTeUzIep+ah/Dve7JrxsfpNlRFix5/NCNABGi3Bqd9myj3vNaIadIJznXOUql/xnM0r5kY3LbNWoDsJhpw==
+"@shelf/aws-sdk-helpers@3.13.57":
+  version "3.13.57"
+  resolved "https://registry.yarnpkg.com/@shelf/aws-sdk-helpers/-/aws-sdk-helpers-3.13.57.tgz#d9f2d03b7239f30ab167f3858ffcd3805ee9777c"
+  integrity sha512-27ZGcUmufJ005XU+o1C8ZHQ+rp+rsNr2olM6VblgaN+WXqOHXdojUevP84KssvmXP+quRFXnljaRCwF2JznzHw==
   dependencies:
     "@shelf/aws-sns-message-attributes" "1.0.2"
     "@shelf/content-disposition" "^0.0.5"
     json.date-extensions "1.2.2"
-    lodash "4.17.19"
+    lodash "4.17.20"
     s3urls "1.5.2"
     uuid "8.3.0"
 
