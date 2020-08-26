@@ -1373,15 +1373,15 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@shelf/aws-sdk-helpers@3.13.52":
-  version "3.13.52"
-  resolved "https://registry.yarnpkg.com/@shelf/aws-sdk-helpers/-/aws-sdk-helpers-3.13.52.tgz#fdcc5557b6a3918f470149f144922b0b6af6641f"
-  integrity sha512-kPIVfTeUzIep+ah/Dve7JrxsfpNlRFix5/NCNABGi3Bqd9myj3vNaIadIJznXOUql/xnM0r5kY3LbNWoDsJhpw==
+"@shelf/aws-sdk-helpers@3.13.57":
+  version "3.13.57"
+  resolved "https://registry.yarnpkg.com/@shelf/aws-sdk-helpers/-/aws-sdk-helpers-3.13.57.tgz#d9f2d03b7239f30ab167f3858ffcd3805ee9777c"
+  integrity sha512-27ZGcUmufJ005XU+o1C8ZHQ+rp+rsNr2olM6VblgaN+WXqOHXdojUevP84KssvmXP+quRFXnljaRCwF2JznzHw==
   dependencies:
     "@shelf/aws-sns-message-attributes" "1.0.2"
     "@shelf/content-disposition" "^0.0.5"
     json.date-extensions "1.2.2"
-    lodash "4.17.19"
+    lodash "4.17.20"
     s3urls "1.5.2"
     uuid "8.3.0"
 
@@ -4715,7 +4715,7 @@ lodash.sortby@^4.7.0:
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
-lodash@4.17.15, lodash@4.17.20, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15:
+lodash@4.17.15, lodash@4.17.19, lodash@4.17.20, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
@@ -6491,10 +6491,10 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-typescript@3.9.7:
-  version "3.9.7"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
-  integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
+typescript@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.0.2.tgz#7ea7c88777c723c681e33bf7988be5d008d05ac2"
+  integrity sha512-e4ERvRV2wb+rRZ/IQeb3jm2VxBsirQLpQhdxplZ2MEzGvDkkMmPglecnNDfSUBivMjP93vRbngYYDQqQ/78bcQ==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
