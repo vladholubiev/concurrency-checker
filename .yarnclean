@@ -80,6 +80,9 @@ yarn-error.log
 yarn.lock
 
 **/@dabh/diagnostics/browser
+**/@microsoft/**/dist/*.browser.js
+**/@microsoft/**/dist/*.es5.js
+**/@microsoft/**/*.tgz
 **/@shelf/**/*.mock.js
 **/@shelf/logger/node_modules/winston/dist
 **/ajv/dist
@@ -96,6 +99,8 @@ yarn.lock
 **/bson/browser_build
 **/buffer/bin
 **/buffer/test
+**/codepage/bits
+**/codepage/dist
 **/color-name/test.js
 **/countries-list/dist/continents.json
 **/countries-list/dist/continents.min.json
@@ -136,6 +141,10 @@ yarn.lock
 **/jmespath/james.html
 **/jmespath/test
 **/json-schema-traverse/spec
+**/kuromoji/build
+**/kuromoji/demo
+**/kuromoji/dict
+**/kuromoji/test
 **/lodash/lodash.min.js
 **/logform/dist
 **/minimist/test
@@ -163,6 +172,20 @@ yarn.lock
 **/uuid/dist/sha1-browser.js
 **/uuid/dist/umd
 **/winston/dist
+**/xlsx/bin
+**/xlsx/dist/jszip.js
+**/xlsx/dist/shim.min.js
+**/xlsx/dist/xlsx.core.min.js
+**/xlsx/dist/xlsx.extendscript.js
+**/xlsx/dist/xlsx.full.min.js
+**/xlsx/dist/xlsx.js
+**/xlsx/dist/xlsx.min.js
+**/xlsx/dist/xlsx.mini.min.js
+**/xlsx/xlsx.mini.js
+**/xlsx/xlsxworker.js
+**/zlib/bin/*.dev.js
+**/zlib/bin/*.min.js
+
 
 # dependencies of normalize-space-x
 **/has-boxed-string-x/dist/has-boxed-string-x.esm.js
