@@ -32,6 +32,9 @@ Gruntfile.js
 **/.github/**/*.yml
 .*ignore
 .babelrc
+.browserslistrc
+.dist.babelrc
+.dist.eslintrc
 .documentup.json
 .editorconfig
 .eslintrc
@@ -42,6 +45,8 @@ Gruntfile.js
 .gitattributes
 .idea
 .jshintrc
+.lib.babelrc
+.lib.eslintrc
 .tern-project
 .travis.yml
 .yarn-metadata.json
@@ -80,14 +85,16 @@ yarn-error.log
 yarn.lock
 
 **/@dabh/diagnostics/browser
+**/@microsoft/**/*.tgz
 **/@microsoft/**/dist/*.browser.js
 **/@microsoft/**/dist/*.es5.js
-**/@microsoft/**/*.tgz
 **/@shelf/**/*.mock.js
 **/@shelf/logger/node_modules/winston/dist
 **/ajv/dist
 **/ajv/scripts
 **/async-hook-jl/test
+**/async/dist/*.min.js
+**/async/dist/*.mjs
 **/async/dist/async.min.js
 **/async/dist/async.mjs
 **/aws-xray-sdk-core/LICENSE
@@ -141,6 +148,8 @@ yarn.lock
 **/jmespath/james.html
 **/jmespath/test
 **/json-schema-traverse/spec
+**/jsonwebtoken/.history
+**/jsonwebtoken/test
 **/kuromoji/build
 **/kuromoji/demo
 **/kuromoji/dict
@@ -150,7 +159,13 @@ yarn.lock
 **/minimist/test
 **/moment/min
 **/moment/src
+**/node-forge/dist
+**/node-forge/flash
+**/psl/dist
 **/punycode/punycode.es6.js
+**/purecloud-platform-client-v2/dist/web-amd
+**/purecloud-platform-client-v2/dist/web-cjs
+**/purecloud-platform-client-v2/src
 **/querystring/test
 **/require_optional/test
 **/retry/test
@@ -159,6 +174,8 @@ yarn.lock
 **/semver/bin/semver
 **/stack-chain/benchmark.js
 **/stack-chain/test
+**/superagent/dist
+**/superagent/index.html
 **/traverse/test
 **/triple-beam/test.js
 **/uri-js/dist/es5/uri.all.min.js
