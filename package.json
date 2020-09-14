@@ -53,7 +53,7 @@
     "lodash": "4.17.20"
   },
   "dependencies": {
-    "@shelf/middy-base": "0.4.57"
+    "@shelf/middy-base": "0.5.164"
   },
   "devDependencies": {
     "@babel/cli": "7.10.4",
