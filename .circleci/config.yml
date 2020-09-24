@@ -292,7 +292,7 @@ workflows:
                 job_type: build
 
       - package_prod:
-          context: staging
+          context: prod
           requires:
             - create_artifact_zip
           filters:
