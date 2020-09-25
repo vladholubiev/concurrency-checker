@@ -1545,47 +1545,47 @@
     eslint-plugin-react "7.20.6"
     eslint-plugin-vue "6.2.2"
 
-"@shelf/lambda-xray-instrument@^0.1.42":
-  version "0.1.42"
-  resolved "https://registry.yarnpkg.com/@shelf/lambda-xray-instrument/-/lambda-xray-instrument-0.1.42.tgz#10401b335067b3ded5376f17f7379b75851dd334"
-  integrity sha512-GupdhFRHTPrdwog5JM0KXLP5YSMJg/P5bVJH6jynEGqgTC3ciL2PlS/YZW31kqlidO6rq4DItxGdo2vgU6XO7A==
+"@shelf/lambda-xray-instrument@^0.1.46":
+  version "0.1.46"
+  resolved "https://registry.yarnpkg.com/@shelf/lambda-xray-instrument/-/lambda-xray-instrument-0.1.46.tgz#7c312748a2ace7d7f67f3d6dec8a13815cea6a36"
+  integrity sha512-8m7cNBpAJoARvkq39Lf3ZNqQEB1Gkirl+lGdWmDU1cXm0cpYR1xidUHh8ejO6LBG0nFeXywqR9n54iJqisVstQ==
   dependencies:
     aws-xray-sdk-core "3.2.0"
 
-"@shelf/middy-base@0.5.177":
-  version "0.5.177"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-base/-/middy-base-0.5.177.tgz#0667f2217d236f73f81249cfa9a03c384389ef63"
-  integrity sha512-XBGBPuMIGi6SWNBR8Nmy3ftGRFeLaN4STDOItcXaDoNfaK+gWlAW41CjSq0c5Wf8ysvitk6hvv8dwuZw3oJEtw==
+"@shelf/middy-base@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-base/-/middy-base-0.6.0.tgz#a38329d04053cd7cc44d4805415820099fcd8275"
+  integrity sha512-JjUn8ETQTSe9YYA2/KU4akZwCvt2XDRgcbyquhk8IIj3APmN2ofxTCbkUJ4iRQB/X1NI9BIKgIu4YLqxw/UblA==
   dependencies:
     "@middy/do-not-wait-for-empty-event-loop" "1.4.0"
     "@middy/http-cors" "1.4.0"
     "@middy/http-event-normalizer" "1.4.0"
     "@middy/http-header-normalizer" "1.4.0"
     "@middy/ssm" "1.4.0"
-    "@shelf/lambda-xray-instrument" "^0.1.42"
-    "@shelf/middy-http-error-handler" "0.2.175"
-    "@shelf/middy-logger" "^0.2.82"
-    "@shelf/middy-unmarshall-authorizer" "^1.1.97"
+    "@shelf/lambda-xray-instrument" "^0.1.46"
+    "@shelf/middy-http-error-handler" "^0.2.188"
+    "@shelf/middy-logger" "^0.2.86"
+    "@shelf/middy-unmarshall-authorizer" "^1.1.102"
     lodash "4.17.20"
 
-"@shelf/middy-http-error-handler@0.2.175":
-  version "0.2.175"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-http-error-handler/-/middy-http-error-handler-0.2.175.tgz#0ccc2373c63092d82c0f3286a9eae8b3f1756822"
-  integrity sha512-iXcgR7zOnP1XQ/95Je6t8c2+HcVJ9TxEtQrXWvA+V1iCXEWGKjSORSrv7rrW09p0Ad6MPa/H0kMHHZkbfd3yDA==
+"@shelf/middy-http-error-handler@^0.2.188":
+  version "0.2.188"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-http-error-handler/-/middy-http-error-handler-0.2.188.tgz#bf6e3585e11b67757bc1ba77982fc01eca5d2a7d"
+  integrity sha512-5c+4HHzBwzl0yPu6L3qoH1PVG+szw+kdnkz602nUoX7zEsiGNAKW+3PCYFVoswVTuB7ypoyLSd24AuKuwiN+7w==
   dependencies:
-    ajv "6.12.4"
+    ajv "6.12.5"
 
-"@shelf/middy-logger@^0.2.82":
-  version "0.2.82"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-logger/-/middy-logger-0.2.82.tgz#7d41acbdaa70c21f15af26ffe41fcc064d8b9125"
-  integrity sha512-J4dmUMQWlPg/Va9z+UYZTm54s/I5kyiJtEcED5gX90VGBPFwWKD8g0M61Pvlshd6F6okUYTz2pVfvrVkDQPeEA==
+"@shelf/middy-logger@^0.2.86":
+  version "0.2.86"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-logger/-/middy-logger-0.2.86.tgz#256215f1d2318a122362d1e9204e374ce3fb904e"
+  integrity sha512-g2yifqZGt2Ty4a61WDVSXUkhJDLkpOMO+8HHE/VBch6PvxUIaicOpcfjN0CSIGojh9UGb9fSdChYRZhl/GF1fg==
 
-"@shelf/middy-unmarshall-authorizer@^1.1.97":
-  version "1.1.97"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-unmarshall-authorizer/-/middy-unmarshall-authorizer-1.1.97.tgz#0c2e8f40acf2ad44491190c6a1d50c939d1b6537"
-  integrity sha512-4Bwh2JfKobuIbN/nIfrUp1gYI+n905+te1Iod+pRW7MLVS1iLHnqIS+sWt2EdYRjvoRRWJpv1nJA9cvBPj7qhQ==
+"@shelf/middy-unmarshall-authorizer@^1.1.102":
+  version "1.1.102"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-unmarshall-authorizer/-/middy-unmarshall-authorizer-1.1.102.tgz#85188bde21c54cb1a3469b9b738031b5a2aa0a40"
+  integrity sha512-q+x1fi0SDfrRnpjvbGyjKJu4AV2XezdyPKWEKybYt4p3kRFJZSKmpqWn+1tt/1Aly+IZ7VExAF1jRwRuO4W2ww==
   dependencies:
-    "@shelf/types" "^0.63.10"
+    "@shelf/types" "^0.64.1"
     json.date-extensions "1.2.2"
 
 "@shelf/prettier-config@0.0.7":
@@ -1593,10 +1593,10 @@
   resolved "https://registry.yarnpkg.com/@shelf/prettier-config/-/prettier-config-0.0.7.tgz#b081d07bfc88e06981e8e207490b7189affeb71c"
   integrity sha512-T931rkdqMq2OWKoocQYxAryLrtqQ7jh642hBo1fDJWNVAWzgenQVpl7smlyXlQr79ti5Nx/vUUfo+4F5Hvnk7Q==
 
-"@shelf/types@^0.63.10":
-  version "0.63.10"
-  resolved "https://registry.yarnpkg.com/@shelf/types/-/types-0.63.10.tgz#5dc3122775ff8cf7beb8ac9f545061e917d85516"
-  integrity sha512-NuaICqVeqQoTxpWeGe9vDwky34sBWsh2OlCLayK8vu9No3fOtsZKqCipGgBEfEJN2wkMVoiNZ83Lb0BEYYtW6A==
+"@shelf/types@^0.64.1":
+  version "0.64.14"
+  resolved "https://registry.yarnpkg.com/@shelf/types/-/types-0.64.14.tgz#e983fa30f82dc27b3539031e76017322bf22d17f"
+  integrity sha512-2zOYK9ase55pDvrxMedcBBGlS6W1WCUycmXblBCTlyWHpSSpru6lTHdlq6afikU9QnZOHd3vnxIf8EyGz0a/Gg==
 
 "@sinonjs/commons@^1.7.0":
   version "1.7.0"
@@ -1954,7 +1954,7 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-ajv@6.12.4, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.4, ajv@^6.5.5:
+ajv@6.12.4, ajv@6.12.5, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.4, ajv@^6.5.5:
   version "6.12.4"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.4.tgz#0614facc4522127fa713445c6bfd3ebd376e2234"
   integrity sha512-eienB2c9qVQs2KWexhkrdMLVDoIQCz5KSeLxwg9Lzk4DOfBtIK9PQwwufcsn1jjGuf9WZmqPMbGxOzfcuphJCQ==
