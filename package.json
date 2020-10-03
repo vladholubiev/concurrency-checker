@@ -48,7 +48,7 @@
     "testEnvironment": "node"
   },
   "resolutions": {
-    "ajv": "6.12.4",
+    "ajv": "6.12.5",
     "aws-sdk": "2.721.0",
     "lodash": "4.17.20"
   },
