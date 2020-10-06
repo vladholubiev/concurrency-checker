@@ -75,7 +75,7 @@ functions:
         Action:
           - 'ssm:GetParameters'
         Resource:
-          - 'arn:aws:ssm:*:*:parameter/${opt:stage}/common/mongo_url/stitch_full'
+          - 'arn:aws:ssm:*:*:parameter/${opt:stage}/common/mongo_url/full'
       - Effect: 'Allow'
         Action:
           - 'dynamodb:BatchWriteItem'
