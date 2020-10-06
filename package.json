@@ -76,6 +76,6 @@
     "prettier": "2.1.2",
     "serverless-associate-waf": "1.2.1",
     "serverless-iam-roles-per-function": "2.0.2",
-    "typescript": "4.0.2"
+    "typescript": "4.0.3"
   }
 }
