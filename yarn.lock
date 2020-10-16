@@ -1552,10 +1552,10 @@
   dependencies:
     aws-xray-sdk-core "3.2.0"
 
-"@shelf/middy-base@0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-base/-/middy-base-0.6.0.tgz#a38329d04053cd7cc44d4805415820099fcd8275"
-  integrity sha512-JjUn8ETQTSe9YYA2/KU4akZwCvt2XDRgcbyquhk8IIj3APmN2ofxTCbkUJ4iRQB/X1NI9BIKgIu4YLqxw/UblA==
+"@shelf/middy-base@0.6.3":
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-base/-/middy-base-0.6.3.tgz#9d441d197c5073aa641690ca78aa8f3b08572ebd"
+  integrity sha512-1xlKh/ZcemnU+APi3yHpRLXEcpAnXYllK2BfKzZNigsN2i/4cg2nRs/oa2AUIDmPt1DHjUwhkqmVRTEBT6AkCw==
   dependencies:
     "@middy/do-not-wait-for-empty-event-loop" "1.4.0"
     "@middy/http-cors" "1.4.0"
@@ -1563,29 +1563,29 @@
     "@middy/http-header-normalizer" "1.4.0"
     "@middy/ssm" "1.4.0"
     "@shelf/lambda-xray-instrument" "^0.1.46"
-    "@shelf/middy-http-error-handler" "^0.2.188"
-    "@shelf/middy-logger" "^0.2.86"
-    "@shelf/middy-unmarshall-authorizer" "^1.1.102"
+    "@shelf/middy-http-error-handler" "^0.2.190"
+    "@shelf/middy-logger" "^0.2.87"
+    "@shelf/middy-unmarshall-authorizer" "^1.1.105"
     lodash "4.17.20"
 
-"@shelf/middy-http-error-handler@^0.2.188":
-  version "0.2.188"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-http-error-handler/-/middy-http-error-handler-0.2.188.tgz#bf6e3585e11b67757bc1ba77982fc01eca5d2a7d"
-  integrity sha512-5c+4HHzBwzl0yPu6L3qoH1PVG+szw+kdnkz602nUoX7zEsiGNAKW+3PCYFVoswVTuB7ypoyLSd24AuKuwiN+7w==
+"@shelf/middy-http-error-handler@^0.2.190":
+  version "0.2.190"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-http-error-handler/-/middy-http-error-handler-0.2.190.tgz#a05919a454ba5bbd62114185a276e33f9e5ff483"
+  integrity sha512-Q3wQpr+t3R6zNJcs+749uIYO2nwYh6sH+Ger9U6W81V2EMaw4I6b5lIpFodtLefgeCDVDZOHUxxR/QF5cxpo1A==
   dependencies:
-    ajv "6.12.5"
+    ajv "6.12.6"
 
-"@shelf/middy-logger@^0.2.86":
-  version "0.2.86"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-logger/-/middy-logger-0.2.86.tgz#256215f1d2318a122362d1e9204e374ce3fb904e"
-  integrity sha512-g2yifqZGt2Ty4a61WDVSXUkhJDLkpOMO+8HHE/VBch6PvxUIaicOpcfjN0CSIGojh9UGb9fSdChYRZhl/GF1fg==
+"@shelf/middy-logger@^0.2.87":
+  version "0.2.87"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-logger/-/middy-logger-0.2.87.tgz#dfd6144a2a67a9c1ea2adeceb47f64f6cf71c03b"
+  integrity sha512-Tfof7kbUjeLUJ90p3nVm4Ukstkw0VFvdTqNfd5sA0CG1gkvEOYtUTJDECkBjcpgAf2rwxkiJSnmcDrP6ei6ZCA==
 
-"@shelf/middy-unmarshall-authorizer@^1.1.102":
-  version "1.1.102"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-unmarshall-authorizer/-/middy-unmarshall-authorizer-1.1.102.tgz#85188bde21c54cb1a3469b9b738031b5a2aa0a40"
-  integrity sha512-q+x1fi0SDfrRnpjvbGyjKJu4AV2XezdyPKWEKybYt4p3kRFJZSKmpqWn+1tt/1Aly+IZ7VExAF1jRwRuO4W2ww==
+"@shelf/middy-unmarshall-authorizer@^1.1.105":
+  version "1.1.105"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-unmarshall-authorizer/-/middy-unmarshall-authorizer-1.1.105.tgz#3ba0f749ef99ef9411741c8d3b4e9c5aa8917dd1"
+  integrity sha512-eUDp2KAMeY+8jQqUjJ82VRsrQl6FRCdRXn/HE2Dq7dMT0T1A82skJQA+paKKNiGtBTKcCUhHBWuQTwMMwvOzFQ==
   dependencies:
-    "@shelf/types" "^0.64.1"
+    "@shelf/types" "0.70.0"
     json.date-extensions "1.2.2"
 
 "@shelf/prettier-config@0.0.7":
@@ -1593,10 +1593,10 @@
   resolved "https://registry.yarnpkg.com/@shelf/prettier-config/-/prettier-config-0.0.7.tgz#b081d07bfc88e06981e8e207490b7189affeb71c"
   integrity sha512-T931rkdqMq2OWKoocQYxAryLrtqQ7jh642hBo1fDJWNVAWzgenQVpl7smlyXlQr79ti5Nx/vUUfo+4F5Hvnk7Q==
 
-"@shelf/types@^0.64.1":
-  version "0.64.14"
-  resolved "https://registry.yarnpkg.com/@shelf/types/-/types-0.64.14.tgz#e983fa30f82dc27b3539031e76017322bf22d17f"
-  integrity sha512-2zOYK9ase55pDvrxMedcBBGlS6W1WCUycmXblBCTlyWHpSSpru6lTHdlq6afikU9QnZOHd3vnxIf8EyGz0a/Gg==
+"@shelf/types@0.70.0":
+  version "0.70.0"
+  resolved "https://registry.yarnpkg.com/@shelf/types/-/types-0.70.0.tgz#ad37c6dd7d55450762ba4273d850fd98c801c8a1"
+  integrity sha512-7jx2yhETWlycf1aGaCkZIA+MbVPQFoX0EDzslnFrTC9YYYmUjbh7UfzEIzcsebeXUktvX1Im7UbTNhO2zUBn8Q==
 
 "@sinonjs/commons@^1.7.0":
   version "1.7.0"
@@ -1989,7 +1989,7 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-ajv@6.12.5, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.4, ajv@^6.5.5:
+ajv@6.12.5, ajv@6.12.6, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.4, ajv@^6.5.5:
   version "6.12.5"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.5.tgz#19b0e8bae8f476e5ba666300387775fb1a00a4da"
   integrity sha512-lRF8RORchjpKG50/WFf8xmg7sgCLFiYNNnqdKflk63whMQcWR5ngGjiSXkL9bjxy6B2npOK2HSMN49jEBMSkag==
