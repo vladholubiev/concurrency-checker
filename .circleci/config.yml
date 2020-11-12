@@ -346,11 +346,11 @@ workflows:
             - deploy_prod
 
       - run_api_tests_staging:
-          context: org-global
+          context: staging
           requires:
             - deploy_staging
 
       - run_api_tests_prod:
-          context: org-global
+          context: prod
           requires:
             - deploy_prod
