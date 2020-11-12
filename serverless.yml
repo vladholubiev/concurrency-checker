@@ -15,6 +15,10 @@ provider:
   logRetentionInDays: 365
   apiGateway:
     minimumCompressionSize: 0
+  stackTags:
+    Environment: ${opt:stage}
+    Service: ${self:service}
+    Serverless: 'true'
   tags:
     # For Datadog APM
     env: ${opt:stage}
