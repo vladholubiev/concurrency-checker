@@ -17,6 +17,7 @@ provider:
     minimumCompressionSize: 0
   stackTags:
     Environment: ${opt:stage}
+    Project: ${self:service}
     Service: ${self:service}
     Serverless: 'true'
   tags:
