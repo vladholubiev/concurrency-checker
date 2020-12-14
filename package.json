@@ -64,6 +64,7 @@
     "@shelf/aws-sdk-helpers": "3.13.108",
     "@shelf/eslint-config": "0.24.0",
     "@shelf/prettier-config": "0.0.7",
+    "@shelf/tsconfig": "0.0.5",
     "@types/jest": "26.0.15",
     "@types/node": "12",
     "aws-sdk": "2.721.0",
