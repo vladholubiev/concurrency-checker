@@ -5,8 +5,8 @@ module.exports = () => {
     tests: ['api-tests/**/*.test.ts'],
     env: {
       params: {
-        env: 'TZ=UTC;ENVIRONMENT=staging;API_HOST=api.gsstaging.net'
-      }
-    }
+        env: 'TZ=UTC;ENVIRONMENT=staging;API_HOST=api.gsstaging.net',
+      },
+    },
   };
 };
