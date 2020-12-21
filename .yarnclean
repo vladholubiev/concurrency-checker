@@ -89,6 +89,7 @@ yarn.lock
 **/@microsoft/**/dist/*.browser.js
 **/@microsoft/**/dist/*.es5.js
 **/@shelf/**/*.mock.js
+**/@shelf/is-valid-url/lib/index.client.js
 **/@shelf/logger/node_modules/winston/dist
 **/ajv/dist
 **/ajv/scripts
@@ -104,6 +105,7 @@ yarn.lock
 **/bintrees/test
 **/bl/test
 **/bson/browser_build
+**/bowser/bundled.js
 **/buffer/bin
 **/buffer/test
 **/codepage/bits
