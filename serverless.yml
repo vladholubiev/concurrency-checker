@@ -4,28 +4,30 @@ provider:
   timeout: 10
   memorySize: 1536
   name: aws
-  stage: staging
-  region: us-east-1
+  stage: ${env:ENVIRONMENT}
+  region: ${env:AWS_DEFAULT_REGION}
   runtime: nodejs12.x
   endpointType: REGIONAL
   versionFunctions: false
   tracing:
     lambda: true
-  deploymentBucket: gs-sls-deployments
+  deploymentBucket: ${env:SLS_ARTIFACTS_S3_BUCKET}
   logRetentionInDays: 365
   apiGateway:
     minimumCompressionSize: 0
+    shouldStartNameWithService: false
+  apiName: ${env:ENVIRONMENT}-${self:service}
   stackTags:
-    Environment: ${opt:stage}
+    Environment: ${env:ENVIRONMENT}
     Project: ${self:service}
     Service: ${self:service}
     Serverless: 'true'
   tags:
     # For Datadog APM
-    env: ${opt:stage}
+    env: ${env:ENVIRONMENT}
     service: xxxxxx
   environment:
-    ENVIRONMENT: ${opt:stage}
+    ENVIRONMENT: ${env:ENVIRONMENT}
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1'
   iamRoleStatements:
     - Effect: 'Allow'
@@ -43,7 +45,7 @@ provider:
         - 'kms:GenerateDataKey'
       Resource:
         - 'arn:aws:kms:*:*:key/alias/aws/ssm'
-        - 'arn:aws:kms:*:*:key/${file(./config.js):MAIN_KMS_KEY_ID}'
+        - 'arn:aws:kms:*:*:key/${ssm:/${env:ENVIRONMENT}/kms_key_id}'
 
 package:
   artifact: artifact.zip
@@ -54,14 +56,14 @@ plugins:
 
 custom:
   associateWaf:
-    name: ${opt:stage}-generic-owasp-acl
+    name: ${env:ENVIRONMENT}-generic-owasp-acl
   serverless-iam-roles-per-function:
     defaultInherit: true
 
 functions:
   someLambdaName:
     handler: lib/some-lambda-name/handler.handler
-    name: ${opt:stage}-${self:service}-someLambdaName
+    name: ${env:ENVIRONMENT}-${self:service}-someLambdaName
     events:
       - http:
           path: /{id}
@@ -80,14 +82,14 @@ functions:
         Action:
           - 'ssm:GetParameters'
         Resource:
-          - 'arn:aws:ssm:*:*:parameter/${opt:stage}/common/mongo_url/full'
+          - 'arn:aws:ssm:*:*:parameter/${env:ENVIRONMENT}/common/mongo_url/full'
       - Effect: 'Allow'
         Action:
           - 'dynamodb:BatchWriteItem'
           - 'dynamodb:Query'
           - 'dynamodb:UpdateItem'
         Resource:
-          - 'arn:aws:dynamodb:*:*:table/${opt:stage}_gems_xxxxxx'
+          - 'arn:aws:dynamodb:*:*:table/${env:ENVIRONMENT}_gems_xxxxxx'
       - Effect: 'Allow'
         Action:
           - 'sns:Publish'
@@ -99,7 +101,7 @@ resources:
     ApiGatewayRestApi:
       Type: AWS::ApiGateway::RestApi
       Properties:
-        Name: ${opt:stage}-${self:service}
+        Name: ${env:ENVIRONMENT}-${self:service}
     GatewayResponseDefault4XX:
       Type: 'AWS::ApiGateway::GatewayResponse'
       Properties:
