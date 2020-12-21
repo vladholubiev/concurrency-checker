@@ -122,8 +122,8 @@ jobs:
       tag: '12'
     working_directory: ~/repo
     environment:
-      - JEST_JUNIT_OUTPUT_DIR: './test-results/jest'
-      - JEST_JUNIT_OUTPUT_NAME: 'results.xml'
+      JEST_JUNIT_OUTPUT_DIR: './test-results/jest'
+      JEST_JUNIT_OUTPUT_NAME: 'results.xml'
     steps:
       - checkout
       - install_deps
@@ -164,7 +164,7 @@ jobs:
       tag: '12'
     working_directory: ~/repo
     environment:
-      - ENVIRONMENT: staging
+      ENVIRONMENT: staging
     steps:
       - package
 
@@ -174,7 +174,7 @@ jobs:
       tag: '12'
     working_directory: ~/repo
     environment:
-      - ENVIRONMENT: staging
+      ENVIRONMENT: staging
     steps:
       - checkout
       - install_deps
@@ -190,7 +190,7 @@ jobs:
       tag: '12'
     working_directory: ~/repo
     environment:
-      - ENVIRONMENT: prod
+      ENVIRONMENT: prod
     steps:
       - package
 
@@ -200,7 +200,7 @@ jobs:
       tag: '12'
     working_directory: ~/repo
     environment:
-      - ENVIRONMENT: prod
+      ENVIRONMENT: prod
     steps:
       - checkout
       - install_deps
@@ -213,7 +213,7 @@ jobs:
   api_gw_config_staging:
     executor: aws-cli/default
     environment:
-      - ENVIRONMENT: staging
+      ENVIRONMENT: staging
     steps:
       - checkout
       - aws-cli/setup
@@ -229,7 +229,7 @@ jobs:
   api_gw_config_prod:
     executor: aws-cli/default
     environment:
-      - ENVIRONMENT: prod
+      ENVIRONMENT: prod
     steps:
       - checkout
       - aws-cli/setup
@@ -248,8 +248,8 @@ jobs:
       tag: '12'
     working_directory: ~/repo
     environment:
-      - ENVIRONMENT: staging
-      - API_HOST: api.gsstaging.net
+      ENVIRONMENT: staging
+      API_HOST: api.gsstaging.net
     steps:
       - checkout
       - install_deps
@@ -261,8 +261,8 @@ jobs:
       tag: '12'
     working_directory: ~/repo
     environment:
-      - ENVIRONMENT: prod
-      - API_HOST: api.shelf.io
+      ENVIRONMENT: prod
+      API_HOST: api.shelf.io
     steps:
       - checkout
       - install_deps
