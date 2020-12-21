@@ -158,23 +158,19 @@ jobs:
           paths:
             - artifact.zip
 
-  package_staging:
+  package_staging_us:
     executor:
       name: node/default
       tag: '12'
     working_directory: ~/repo
-    environment:
-      ENVIRONMENT: staging
     steps:
       - package
 
-  deploy_staging:
+  deploy_staging_us:
     executor:
       name: node/default
       tag: '12'
     working_directory: ~/repo
-    environment:
-      ENVIRONMENT: staging
     steps:
       - checkout
       - install_deps
@@ -184,23 +180,19 @@ jobs:
       - install_sls
       - run: yarn deploy
 
-  package_prod:
+  package_prod_us:
     executor:
       name: node/default
       tag: '12'
     working_directory: ~/repo
-    environment:
-      ENVIRONMENT: prod
     steps:
       - package
 
-  deploy_prod:
+  deploy_prod_us:
     executor:
       name: node/default
       tag: '12'
     working_directory: ~/repo
-    environment:
-      ENVIRONMENT: prod
     steps:
       - checkout
       - install_deps
@@ -210,10 +202,8 @@ jobs:
       - install_sls
       - run: yarn deploy
 
-  api_gw_config_staging:
+  api_gw_config_staging_us:
     executor: aws-cli/default
-    environment:
-      ENVIRONMENT: staging
     steps:
       - checkout
       - aws-cli/setup
@@ -226,10 +216,8 @@ jobs:
           base_path: xxxxxx
           domain_name: api.gsstaging.net
 
-  api_gw_config_prod:
+  api_gw_config_prod_us:
     executor: aws-cli/default
-    environment:
-      ENVIRONMENT: prod
     steps:
       - checkout
       - aws-cli/setup
@@ -242,26 +230,24 @@ jobs:
           base_path: xxxxxx
           domain_name: api.shelf.io
 
-  run_api_tests_staging:
+  run_api_tests_staging_us:
     executor:
       name: node/default
       tag: '12'
     working_directory: ~/repo
     environment:
-      ENVIRONMENT: staging
       API_HOST: api.gsstaging.net
     steps:
       - checkout
       - install_deps
       - run: yarn test:integration
 
-  run_api_tests_prod:
+  run_api_tests_prod_us:
     executor:
       name: node/default
       tag: '12'
     working_directory: ~/repo
     environment:
-      ENVIRONMENT: prod
       API_HOST: api.shelf.io
     steps:
       - checkout
@@ -279,8 +265,8 @@ workflows:
       - create_artifact_zip:
           context: npm
 
-      - package_staging:
-          context: staging
+      - package_staging_us:
+          context: staging-us
           requires:
             - create_artifact_zip
           filters:
@@ -293,8 +279,8 @@ workflows:
                 environment_type: staging
                 job_type: build
 
-      - package_prod:
-          context: prod
+      - package_prod_us:
+          context: prod-us
           requires:
             - create_artifact_zip
           filters:
@@ -307,11 +293,11 @@ workflows:
                 environment_type: production
                 job_type: build
 
-      - deploy_staging:
-          context: staging
+      - deploy_staging_us:
+          context: staging-us
           requires:
             - tests
-            - package_staging
+            - package_staging_us
           filters:
             branches:
               only:
@@ -321,11 +307,11 @@ workflows:
                 environment_type: staging
                 job_type: deployment
 
-      - deploy_prod:
-          context: prod
+      - deploy_prod_us:
+          context: prod-us
           requires:
             - tests
-            - package_prod
+            - package_prod_us
           filters:
             branches:
               only:
@@ -335,22 +321,22 @@ workflows:
                 environment_type: production
                 job_type: deployment
 
-      - api_gw_config_staging:
-          context: staging
+      - api_gw_config_staging_us:
+          context: staging-us
           requires:
-            - deploy_staging
+            - deploy_staging_us
 
-      - api_gw_config_prod:
-          context: prod
+      - api_gw_config_prod_us:
+          context: prod-us
           requires:
-            - deploy_prod
+            - deploy_prod_us
 
-      - run_api_tests_staging:
-          context: staging
+      - run_api_tests_staging_us:
+          context: staging-us
           requires:
-            - deploy_staging
+            - deploy_staging_us
 
-      - run_api_tests_prod:
-          context: prod
+      - run_api_tests_prod_us:
+          context: prod-us
           requires:
-            - deploy_prod
+            - deploy_prod_us
