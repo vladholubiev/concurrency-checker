@@ -11,7 +11,7 @@ provider:
   versionFunctions: false
   tracing:
     lambda: true
-  deploymentBucket: ${env:SLS_ARTIFACTS_S3_BUCKET}
+  deploymentBucket: ${ssm:/${env:ENVIRONMENT}/sls_artifacts_s3_bucket_name}
   logRetentionInDays: 365
   apiGateway:
     minimumCompressionSize: 0
