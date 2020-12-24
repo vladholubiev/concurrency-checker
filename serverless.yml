@@ -56,7 +56,7 @@ plugins:
 
 custom:
   associateWaf:
-    name: ${env:ENVIRONMENT}-generic-owasp-acl
+    name: ${ssm:/${env:ENVIRONMENT}/waf_regional_web_acl_id}
   serverless-iam-roles-per-function:
     defaultInherit: true
 
