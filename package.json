@@ -10,10 +10,10 @@
   "scripts": {
     "build": "rm -rf lib/ && babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts'",
     "coverage": "yarn test --coverage",
-    "deploy": "serverless deploy --stage $ENVIRONMENT --package .serverless",
+    "deploy": "serverless deploy --package .serverless",
     "lint": "eslint . --fix --ext .js,.json,.ts --quiet",
     "lint:ci": "eslint . --ext .js,.json,.ts --quiet",
-    "package": "serverless package --stage $ENVIRONMENT",
+    "package": "serverless package",
     "test": "TZ=UTC jest src",
     "test:integration": "TZ=UTC jest api-tests",
     "test:integration:staging": "ENVIRONMENT=staging API_HOST=api.gsstaging.net yarn test:integration",
