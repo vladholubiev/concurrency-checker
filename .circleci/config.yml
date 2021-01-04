@@ -173,6 +173,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - install_deps
       - attach_workspace:
           at: ~/repo
 
@@ -194,6 +195,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - install_deps
       - attach_workspace:
           at: ~/repo
 
