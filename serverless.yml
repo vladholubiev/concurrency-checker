@@ -44,7 +44,6 @@ provider:
         - 'kms:Encrypt'
         - 'kms:GenerateDataKey'
       Resource:
-        - 'arn:aws:kms:*:*:key/alias/aws/ssm'
         - 'arn:aws:kms:*:*:key/${ssm:/${self:provider.stage}/kms_key_id}'
 
 package:
