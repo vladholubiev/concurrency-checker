@@ -52,12 +52,16 @@ package:
 plugins:
   - serverless-associate-waf
   - serverless-iam-roles-per-function
+  - serverless-tag-cloud-watch-logs
 
 custom:
   associateWaf:
     name: ${ssm:/${self:provider.stage}/waf_regional_web_acl_id}
   serverless-iam-roles-per-function:
     defaultInherit: true
+  cloudWatchLogsTags:
+    Environment: ${env:ENVIRONMENT}
+    Project: ${self:service}
 
 functions:
   someLambdaName:

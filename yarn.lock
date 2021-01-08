@@ -5044,7 +5044,7 @@ lodash.sortby@^4.7.0:
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
-lodash@4.17.20, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20:
+lodash@4.17.20, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.5:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
@@ -6252,6 +6252,13 @@ serverless-iam-roles-per-function@3.0.1:
   integrity sha512-XHsmzjYdflL6Pv1HY0Olpn00LpFqCaEGeNSv+wBx/2+p/yEDzSCuFAqmPY43OyyXZlqeyQfFNZJc/2OAfTwvYA==
   dependencies:
     lodash "^4.17.20"
+
+serverless-tag-cloud-watch-logs@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/serverless-tag-cloud-watch-logs/-/serverless-tag-cloud-watch-logs-1.0.0.tgz#93fa3817c3d3be73d02e03a3ac8945ff44411f6e"
+  integrity sha1-k/o4F8PTvnPQLgOjrIlF/0RBH24=
+  dependencies:
+    lodash "^4.17.5"
 
 set-blocking@^2.0.0:
   version "2.0.0"
