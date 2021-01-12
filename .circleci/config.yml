@@ -138,7 +138,7 @@ jobs:
       - checkout
       - install_deps
 
-      - run: yarn test --maxWorkers=4
+      - run: yarn coverage --maxWorkers=4
       - run: yarn lint:ci
       - run: yarn type-check
 
