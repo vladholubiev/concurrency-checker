@@ -74,7 +74,7 @@ functions:
           integration: lambda-proxy
           cors: true
           authorizer:
-            arn: ${file(./config.js):getLambdaAuthorizerARN}
+            arn: ${ssm:/${env:ENVIRONMENT}/auth/lambda_authorizers/all_arn}
             resultTtlInSeconds: 0
           request:
             parameters:
@@ -97,7 +97,7 @@ functions:
         Action:
           - 'sns:Publish'
         Resource:
-          - '${file(./config.js):snsPrefix}_gem-rating-added'
+          - '${ssm:/${env:ENVIRONMENT}/sns_arn_prefix}_gem-rating-added'
 
 resources:
   Resources:
