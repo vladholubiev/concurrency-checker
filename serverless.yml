@@ -85,7 +85,7 @@ functions:
         Action:
           - 'ssm:GetParameters'
         Resource:
-          - 'arn:aws:ssm:*:*:parameter/${self:provider.stage}/common/mongo_url/full'
+          - '${ssm:/${env:ENVIRONMENT}/ssm_arn_prefix}/common/mongo_url/full'
       - Effect: 'Allow'
         Action:
           - 'dynamodb:BatchWriteItem'
