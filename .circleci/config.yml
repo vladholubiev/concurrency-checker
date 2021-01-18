@@ -469,7 +469,6 @@ workflows:
           requires:
             - tests
             - package_prod_eu
-            - deploy_prod_us
           filters:
             branches:
               only:
