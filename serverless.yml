@@ -12,7 +12,7 @@ provider:
   tracing:
     lambda: true
   deploymentBucket: ${ssm:/${self:provider.stage}/sls_artifacts_s3_bucket_name}
-  logRetentionInDays: 365
+  logRetentionInDays: 400
   apiGateway:
     minimumCompressionSize: 0
     shouldStartNameWithService: false
