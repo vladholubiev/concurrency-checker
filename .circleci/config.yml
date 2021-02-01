@@ -34,6 +34,18 @@ commands:
             curl -o- -L https://slss.io/install | bash
             sudo mv ~/.serverless/bin/serverless /usr/local/bin/serverless
 
+  with_env_vars_from_ssm:
+    parameters:
+      env_var:
+        type: string
+      ssm_param:
+        type: string
+    steps:
+      - run:
+          name: fetch from ssm
+          command: |
+            echo "export << parameters.env_var >>=$(npx @shelf/aws-ssm-get-param-cli /$ENVIRONMENT<< parameters.ssm_param >>)" >> /tmp/ssm
+
   create_zip:
     steps:
       - run:
@@ -106,9 +118,10 @@ commands:
         type: string
       base_path:
         type: string
-      domain_name:
-        type: string
     steps:
+      - with_env_vars_from_ssm:
+          env_var: API_HOST
+          ssm_param: /shelf_api_domain
       - run:
           name: Create API GW Base Path Mapping
           command: |
@@ -118,7 +131,7 @@ commands:
               --output text
             )
             aws apigateway create-base-path-mapping \
-              --domain-name="<< parameters.domain_name >>" \
+              --domain-name="$API_HOST" \
               --rest-api-id="$API_ID" \
               --base-path="<< parameters.base_path >>" \
               --stage="$ENVIRONMENT" || true
@@ -168,7 +181,7 @@ jobs:
           paths:
             - artifact.zip
 
-  package_staging_us:
+  package:
     executor:
       name: node/default
       tag: '12'
@@ -176,7 +189,7 @@ jobs:
     steps:
       - package
 
-  deploy_staging_us:
+  deploy:
     executor:
       name: node/default
       tag: '12'
@@ -184,55 +197,7 @@ jobs:
     steps:
       - deploy
 
-  package_prod_us:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    steps:
-      - package
-
-  deploy_prod_us:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    steps:
-      - deploy
-
-  package_staging_eu:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    steps:
-      - package
-
-  deploy_staging_eu:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    steps:
-      - deploy
-
-  package_prod_eu:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    steps:
-      - package
-
-  deploy_prod_eu:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    steps:
-      - deploy
-
-  api_gw_config_staging_us:
+  api_gw_config:
     executor: aws-cli/default
     steps:
       - checkout
@@ -244,23 +209,8 @@ jobs:
       - create_base_path_mapping:
           api_name: xxxxxx
           base_path: xxxxxx
-          domain_name: api.gsstaging.net
 
-  api_gw_config_prod_us:
-    executor: aws-cli/default
-    steps:
-      - checkout
-      - aws-cli/setup
-
-      - enable_api_gw_xray:
-          api_name: xxxxxx
-
-      - create_base_path_mapping:
-          api_name: xxxxxx
-          base_path: xxxxxx
-          domain_name: api.shelf.io
-
-  run_api_tests_staging_us:
+  run_api_tests:
     executor:
       name: node/default
       tag: '12'
@@ -270,71 +220,14 @@ jobs:
     steps:
       - checkout
       - install_deps
-      - run: yarn test:integration
-
-  run_api_tests_prod_us:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    environment:
-      API_HOST: api.shelf.io
-    steps:
-      - checkout
-      - install_deps
-      - run: yarn test:integration
-
-  api_gw_config_staging_eu:
-    executor: aws-cli/default
-    steps:
-      - checkout
-      - aws-cli/setup
-
-      - enable_api_gw_xray:
-          api_name: xxxxxx
-
-      - create_base_path_mapping:
-          api_name: xxxxxx
-          base_path: xxxxxx
-          domain_name: api.gsstaging.net
-
-  api_gw_config_prod_eu:
-    executor: aws-cli/default
-    steps:
-      - checkout
-      - aws-cli/setup
-
-      - enable_api_gw_xray:
-          api_name: xxxxxx
-
-      - create_base_path_mapping:
-          api_name: xxxxxx
-          base_path: xxxxxx
-          domain_name: api.shelf.io
-
-  run_api_tests_staging_eu:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    environment:
-      API_HOST: api.gsstaging.net
-    steps:
-      - checkout
-      - install_deps
-      - run: yarn test:integration
-
-  run_api_tests_prod_eu:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    environment:
-      API_HOST: api.shelf.io
-    steps:
-      - checkout
-      - install_deps
-      - run: yarn test:integration
+      - with_env_vars_from_ssm:
+          env_var: API_HOST
+          ssm_param: /shelf_api_domain
+      - run:
+          name: run tests
+          command: |
+            source /tmp/ssm
+            yarn test:integration
 
 workflows:
   version: 2
@@ -347,7 +240,8 @@ workflows:
       - create_artifact_zip:
           context: npm
 
-      - package_staging_us:
+      - package:
+          name: package_staging_us
           context: staging-us
           requires:
             - create_artifact_zip
@@ -361,7 +255,8 @@ workflows:
                 environment_type: staging
                 job_type: build
 
-      - package_prod_us:
+      - package:
+          name: package_prod_us
           context: prod-us
           requires:
             - create_artifact_zip
@@ -375,7 +270,8 @@ workflows:
                 environment_type: production
                 job_type: build
 
-      - deploy_staging_us:
+      - deploy:
+          name: deploy_staging_us
           context: staging-us
           requires:
             - tests
@@ -389,7 +285,8 @@ workflows:
                 environment_type: staging
                 job_type: deployment
 
-      - deploy_prod_us:
+      - deploy:
+          name: deploy_prod_us
           context: prod-us
           requires:
             - tests
@@ -403,22 +300,26 @@ workflows:
                 environment_type: production
                 job_type: deployment
 
-      - api_gw_config_staging_us:
+      - api_gw_config:
+          name: api_gw_config_staging_us
           context: staging-us
           requires:
             - deploy_staging_us
 
-      - api_gw_config_prod_us:
+      - api_gw_config:
+          name: api_gw_config_prod_us
           context: prod-us
           requires:
             - deploy_prod_us
 
-      - run_api_tests_staging_us:
+      - run_api_tests:
+          name: run_api_tests_staging_us
           context: staging-us
           requires:
             - deploy_staging_us
 
-      - run_api_tests_prod_us:
+      - run_api_tests:
+          name: run_api_tests_prod_us
           context: prod-us
           requires:
             - deploy_prod_us
@@ -478,22 +379,26 @@ workflows:
                 environment_type: production
                 job_type: deployment
 
-      - api_gw_config_staging_eu:
+      - api_gw_config:
+          name: api_gw_config_staging_eu
           context: staging-eu
           requires:
             - deploy_staging_eu
 
-      - api_gw_config_prod_eu:
+      - api_gw_config:
+          name: api_gw_config_prod_eu
           context: prod-eu
           requires:
             - deploy_prod_eu
 
-      - run_api_tests_staging_eu:
+      - run_api_tests:
+          name: run_api_tests_staging_eu
           context: staging-eu
           requires:
             - deploy_staging_eu
 
-      - run_api_tests_prod_eu:
+      - run_api_tests:
+          name: run_api_tests_prod_eu
           context: prod-eu
           requires:
             - deploy_prod_eu
