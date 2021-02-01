@@ -118,9 +118,10 @@ commands:
         type: string
       base_path:
         type: string
-      domain_name:
-        type: string
     steps:
+      - with_env_vars_from_ssm:
+          env_var: API_HOST
+          ssm_param: /shelf_api_domain
       - run:
           name: Create API GW Base Path Mapping
           command: |
@@ -130,7 +131,7 @@ commands:
               --output text
             )
             aws apigateway create-base-path-mapping \
-              --domain-name="<< parameters.domain_name >>" \
+              --domain-name="$API_HOST" \
               --rest-api-id="$API_ID" \
               --base-path="<< parameters.base_path >>" \
               --stage="$ENVIRONMENT" || true
@@ -196,7 +197,7 @@ jobs:
     steps:
       - deploy
 
-  api_gw_config_staging_us:
+  api_gw_config:
     executor: aws-cli/default
     steps:
       - checkout
@@ -208,21 +209,6 @@ jobs:
       - create_base_path_mapping:
           api_name: xxxxxx
           base_path: xxxxxx
-          domain_name: api.gsstaging.net
-
-  api_gw_config_prod_us:
-    executor: aws-cli/default
-    steps:
-      - checkout
-      - aws-cli/setup
-
-      - enable_api_gw_xray:
-          api_name: xxxxxx
-
-      - create_base_path_mapping:
-          api_name: xxxxxx
-          base_path: xxxxxx
-          domain_name: api.shelf.io
 
   run_api_tests:
     executor:
@@ -242,34 +228,6 @@ jobs:
           command: |
             source /tmp/ssm
             yarn test:integration
-
-  api_gw_config_staging_eu:
-    executor: aws-cli/default
-    steps:
-      - checkout
-      - aws-cli/setup
-
-      - enable_api_gw_xray:
-          api_name: xxxxxx
-
-      - create_base_path_mapping:
-          api_name: xxxxxx
-          base_path: xxxxxx
-          domain_name: api.gsstaging.net
-
-  api_gw_config_prod_eu:
-    executor: aws-cli/default
-    steps:
-      - checkout
-      - aws-cli/setup
-
-      - enable_api_gw_xray:
-          api_name: xxxxxx
-
-      - create_base_path_mapping:
-          api_name: xxxxxx
-          base_path: xxxxxx
-          domain_name: api.shelf.io
 
 workflows:
   version: 2
@@ -342,12 +300,14 @@ workflows:
                 environment_type: production
                 job_type: deployment
 
-      - api_gw_config_staging_us:
+      - api_gw_config:
+          name: api_gw_config_staging_us
           context: staging-us
           requires:
             - deploy_staging_us
 
-      - api_gw_config_prod_us:
+      - api_gw_config:
+          name: api_gw_config_prod_us
           context: prod-us
           requires:
             - deploy_prod_us
@@ -419,12 +379,14 @@ workflows:
                 environment_type: production
                 job_type: deployment
 
-      - api_gw_config_staging_eu:
+      - api_gw_config:
+          name: api_gw_config_staging_eu
           context: staging-eu
           requires:
             - deploy_staging_eu
 
-      - api_gw_config_prod_eu:
+      - api_gw_config:
+          name: api_gw_config_prod_eu
           context: prod-eu
           requires:
             - deploy_prod_eu
