@@ -34,6 +34,18 @@ commands:
             curl -o- -L https://slss.io/install | bash
             sudo mv ~/.serverless/bin/serverless /usr/local/bin/serverless
 
+  with_env_vars_from_ssm:
+    parameters:
+      env_var:
+        type: string
+      ssm_param:
+        type: string
+    steps:
+      - run:
+          name: fetch from ssm
+          command: |
+            echo "export << parameters.env_var >>=$(npx @shelf/aws-ssm-get-param-cli /$ENVIRONMENT<< parameters.ssm_param >>)" >> /tmp/ssm
+
   create_zip:
     steps:
       - run:
@@ -212,7 +224,7 @@ jobs:
           base_path: xxxxxx
           domain_name: api.shelf.io
 
-  run_api_tests_staging_us:
+  run_api_tests:
     executor:
       name: node/default
       tag: '12'
@@ -222,19 +234,14 @@ jobs:
     steps:
       - checkout
       - install_deps
-      - run: yarn test:integration
-
-  run_api_tests_prod_us:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    environment:
-      API_HOST: api.shelf.io
-    steps:
-      - checkout
-      - install_deps
-      - run: yarn test:integration
+      - with_env_vars_from_ssm:
+          env_var: API_HOST
+          ssm_param: /shelf_api_domain
+      - run:
+          name: run tests
+          command: |
+            source /tmp/ssm
+            yarn test:integration
 
   api_gw_config_staging_eu:
     executor: aws-cli/default
@@ -263,30 +270,6 @@ jobs:
           api_name: xxxxxx
           base_path: xxxxxx
           domain_name: api.shelf.io
-
-  run_api_tests_staging_eu:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    environment:
-      API_HOST: api.gsstaging.net
-    steps:
-      - checkout
-      - install_deps
-      - run: yarn test:integration
-
-  run_api_tests_prod_eu:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    environment:
-      API_HOST: api.shelf.io
-    steps:
-      - checkout
-      - install_deps
-      - run: yarn test:integration
 
 workflows:
   version: 2
@@ -369,12 +352,14 @@ workflows:
           requires:
             - deploy_prod_us
 
-      - run_api_tests_staging_us:
+      - run_api_tests:
+          name: run_api_tests_staging_us
           context: staging-us
           requires:
             - deploy_staging_us
 
-      - run_api_tests_prod_us:
+      - run_api_tests:
+          name: run_api_tests_prod_us
           context: prod-us
           requires:
             - deploy_prod_us
@@ -444,12 +429,14 @@ workflows:
           requires:
             - deploy_prod_eu
 
-      - run_api_tests_staging_eu:
+      - run_api_tests:
+          name: run_api_tests_staging_eu
           context: staging-eu
           requires:
             - deploy_staging_eu
 
-      - run_api_tests_prod_eu:
+      - run_api_tests:
+          name: run_api_tests_prod_eu
           context: prod-eu
           requires:
             - deploy_prod_eu
