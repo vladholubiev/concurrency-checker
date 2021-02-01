@@ -168,7 +168,7 @@ jobs:
           paths:
             - artifact.zip
 
-  package_staging_us:
+  package:
     executor:
       name: node/default
       tag: '12'
@@ -176,55 +176,7 @@ jobs:
     steps:
       - package
 
-  deploy_staging_us:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    steps:
-      - deploy
-
-  package_prod_us:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    steps:
-      - package
-
-  deploy_prod_us:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    steps:
-      - deploy
-
-  package_staging_eu:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    steps:
-      - package
-
-  deploy_staging_eu:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    steps:
-      - deploy
-
-  package_prod_eu:
-    executor:
-      name: node/default
-      tag: '12'
-    working_directory: ~/repo
-    steps:
-      - package
-
-  deploy_prod_eu:
+  deploy:
     executor:
       name: node/default
       tag: '12'
@@ -347,7 +299,8 @@ workflows:
       - create_artifact_zip:
           context: npm
 
-      - package_staging_us:
+      - package:
+          name: package_staging_us
           context: staging-us
           requires:
             - create_artifact_zip
@@ -361,7 +314,8 @@ workflows:
                 environment_type: staging
                 job_type: build
 
-      - package_prod_us:
+      - package:
+          name: package_prod_us
           context: prod-us
           requires:
             - create_artifact_zip
@@ -375,7 +329,8 @@ workflows:
                 environment_type: production
                 job_type: build
 
-      - deploy_staging_us:
+      - deploy:
+          name: deploy_staging_us
           context: staging-us
           requires:
             - tests
@@ -389,7 +344,8 @@ workflows:
                 environment_type: staging
                 job_type: deployment
 
-      - deploy_prod_us:
+      - deploy:
+          name: deploy_prod_us
           context: prod-us
           requires:
             - tests
