@@ -52,7 +52,7 @@ package:
 plugins:
   - serverless-associate-waf
   - serverless-iam-roles-per-function
-  - serverless-tag-cloud-watch-logs
+  - serverless-tag-cloud-watch-log-groups
 
 custom:
   associateWaf:
