@@ -125,6 +125,7 @@ commands:
       - run:
           name: Create API GW Base Path Mapping
           command: |
+            source /tmp/ssm
             API_NAME="$ENVIRONMENT-<< parameters.api_name >>"
             API_ID=$(aws apigateway get-rest-apis \
               --query="(items[?name == '$API_NAME'].id)" \
