@@ -56,7 +56,7 @@ plugins:
 
 custom:
   associateWaf:
-    name: ${ssm:/${self:provider.stage}/waf_regional_web_acl_id}
+    name: ${env:ENVIRONMENT}-generic-owasp-acl
   serverless-iam-roles-per-function:
     defaultInherit: true
   cloudWatchLogsTags:
