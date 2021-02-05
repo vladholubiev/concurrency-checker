@@ -6,7 +6,7 @@ provider:
   name: aws
   stage: ${env:ENVIRONMENT}
   region: ${env:AWS_DEFAULT_REGION}
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   endpointType: REGIONAL
   versionFunctions: false
   tracing:
