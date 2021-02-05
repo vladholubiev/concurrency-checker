@@ -1597,6 +1597,11 @@
   resolved "https://registry.yarnpkg.com/@shelf/aws-sns-message-attributes/-/aws-sns-message-attributes-1.0.2.tgz#fe4950f5daca45bcfef3dfd5866e5c650dc8ef9d"
   integrity sha512-BZBteHgiNhs3vPHWVAXL1iO78tiubyx7dB8bt6FYwx4wnKd8qJoeMdxiQjP3iOGppOtxosJROyeJ+tO4S8KZZg==
 
+"@shelf/babel-config@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@shelf/babel-config/-/babel-config-0.0.1.tgz#a9c7c4027824d63a8da7de8abce83e9abfc6ae2f"
+  integrity sha512-Ly8wnOHWCWTUKpXuJvyWcwCKxFmMVjWgiz25Gv8TOMc65jJYirmSeo4ySWIEF3+aNyM2uR9mylfOr0+nH7a8qg==
+
 "@shelf/content-disposition@^0.0.47":
   version "0.0.47"
   resolved "https://registry.yarnpkg.com/@shelf/content-disposition/-/content-disposition-0.0.47.tgz#0d3bbf24c7448c7106963f121a822fe1e30b5c63"
