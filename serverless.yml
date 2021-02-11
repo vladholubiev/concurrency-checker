@@ -1,5 +1,7 @@
 service: xxxxxx
 
+unresolvedVariablesNotificationMode: error
+
 provider:
   timeout: 10
   memorySize: 1536
