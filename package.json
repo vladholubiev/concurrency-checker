@@ -72,9 +72,9 @@
     "@shelf/middy-base": "0.8.2"
   },
   "devDependencies": {
-    "@babel/cli": "7.12.10",
-    "@babel/core": "7.12.10",
-    "@babel/node": "7.12.10",
+    "@babel/cli": "7.13.0",
+    "@babel/core": "7.13.8",
+    "@babel/node": "7.13.0",
     "@shelf/aws-sdk-helpers": "3.13.120",
     "@shelf/babel-config": "0.0.2",
     "@shelf/eslint-config": "0.25.0",
