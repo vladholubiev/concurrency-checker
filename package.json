@@ -75,7 +75,7 @@
     "@babel/cli": "7.13.0",
     "@babel/core": "7.13.8",
     "@babel/node": "7.13.0",
-    "@shelf/aws-sdk-helpers": "3.13.120",
+    "@shelf/aws-sdk-helpers": "4.0.47",
     "@shelf/babel-config": "0.0.2",
     "@shelf/eslint-config": "0.25.0",
     "@shelf/prettier-config": "1.0.0",
