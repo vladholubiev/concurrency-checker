@@ -1694,46 +1694,46 @@
     eslint-plugin-react "7.21.5"
     eslint-plugin-vue "7.2.0"
 
-"@shelf/lambda-xray-instrument@^0.1.47":
-  version "0.1.47"
-  resolved "https://registry.yarnpkg.com/@shelf/lambda-xray-instrument/-/lambda-xray-instrument-0.1.47.tgz#0bfa971c13a1611b014cf3682b59b5d35353d13b"
-  integrity sha512-T3qAf09AjyoVWMJx5+ZfV9a0V7zMNTbOFNa5F45m0yqnuPCArae/HxjyeDfHPzFJWpg0zrc/j6mkhA35fxfxRg==
+"@shelf/lambda-xray-instrument@^0.1.49":
+  version "0.1.49"
+  resolved "https://registry.yarnpkg.com/@shelf/lambda-xray-instrument/-/lambda-xray-instrument-0.1.49.tgz#2f42b7d01f5091c9651f769e959216a31cfeebf3"
+  integrity sha512-HbrW6saOc5xtu/6Zztrq4zRhVZ9AXpRfxKGQbuYubl7wiGSBivflu5O1yVrVgGObpZt8sLiaGiVX87IJ2s8pFw==
   dependencies:
     aws-xray-sdk-core "3.2.0"
 
-"@shelf/middy-base@0.8.9":
-  version "0.8.9"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-base/-/middy-base-0.8.9.tgz#4d583aab5c21071799f3cd6394ae0ecbb4cc29bf"
-  integrity sha512-KxpjO35CsTt1Mg5PuK8aI8nfPh4xNHd+ZifQp9eUWZy3//kIfPxGhbDLMoJmQMt11Pscep7RicxLhHbiz/H5cw==
+"@shelf/middy-base@0.8.11":
+  version "0.8.11"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-base/-/middy-base-0.8.11.tgz#cf6ffe295428ff46cd44b23ac4f02b5bbd3ebadd"
+  integrity sha512-V4f1GbT9KjPripGCdXq3dGNqRnClwpDq+INGvq4Ock2TS4GNOIpBR7I4nJmAxNkJ/9x6zg/CUHDpcfSYJGZfSQ==
   dependencies:
     "@middy/do-not-wait-for-empty-event-loop" "1.5.2"
     "@middy/http-cors" "1.5.2"
     "@middy/http-event-normalizer" "1.5.2"
     "@middy/http-header-normalizer" "1.5.2"
     "@middy/ssm" "1.5.2"
-    "@shelf/lambda-xray-instrument" "^0.1.47"
-    "@shelf/middy-http-error-handler" "^0.3.10"
-    "@shelf/middy-logger" "^0.2.96"
-    "@shelf/middy-unmarshall-authorizer" "^1.3.6"
+    "@shelf/lambda-xray-instrument" "^0.1.49"
+    "@shelf/middy-http-error-handler" "^0.3.12"
+    "@shelf/middy-logger" "^0.2.98"
+    "@shelf/middy-unmarshall-authorizer" "^1.3.8"
     "@shelf/types" "0.71.21"
     lodash "4.17.21"
 
-"@shelf/middy-http-error-handler@^0.3.10":
-  version "0.3.10"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-http-error-handler/-/middy-http-error-handler-0.3.10.tgz#11357e144810ce0dc50bcd0608f284c2c2e9be9f"
-  integrity sha512-tE9LqfRi1CJg4n4n60Q8ZbJQR10aIvC9y6FW7azfxZxmLjAQNduqSgqXKw9SlT0B/8jNv497QoI/8qRI48Ngbw==
+"@shelf/middy-http-error-handler@^0.3.12":
+  version "0.3.12"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-http-error-handler/-/middy-http-error-handler-0.3.12.tgz#712ddb3b508db329ec899e1b4b3f0a9fe2f2fb69"
+  integrity sha512-hYkXQZZuhdY6A5YI2Y4HPTA9RCajqkWvqhqN8KDzlvXwQXxBejoZ2257cR3ITEUi/v59YS1OCbQlsyqrxofOag==
   dependencies:
     ajv "6.12.6"
 
-"@shelf/middy-logger@^0.2.96":
-  version "0.2.96"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-logger/-/middy-logger-0.2.96.tgz#c67de090c55897df59493a6e5e9f6dad05763a1d"
-  integrity sha512-vwu1i2hdnUn4w2d7aqBoPRbpP1L6FJlpbfOCUqDT4JDM+H6CbgNRyC+HZWF7XR1TsaZBaZyrcV1H+TMy3j5XmQ==
+"@shelf/middy-logger@^0.2.98":
+  version "0.2.98"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-logger/-/middy-logger-0.2.98.tgz#a340e5ab11ccebcd9d37637dce89b16ed8dc072d"
+  integrity sha512-Ecb9RhJDn/oyWGmW03FY0PnDdjFFW83LbSj7INQYJlBzQwdS96bWYPqJ7diqh3o37SrUGNPhOfzdoxcXsdRErg==
 
-"@shelf/middy-unmarshall-authorizer@^1.3.6":
-  version "1.3.6"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-unmarshall-authorizer/-/middy-unmarshall-authorizer-1.3.6.tgz#0ff67d9e085934f872a947b4c3fd874e384d3a87"
-  integrity sha512-a56vvDffRUQ7nU7Eje2gugNdDvQ+a7Le6qUiHkrF/1fjQaSpiuJlW8Am9H6HmEEP7WLqP34XKCFOe4w502TLiA==
+"@shelf/middy-unmarshall-authorizer@^1.3.8":
+  version "1.3.8"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-unmarshall-authorizer/-/middy-unmarshall-authorizer-1.3.8.tgz#388992739604d309a65852b20981d1d86c4eda2a"
+  integrity sha512-id6ywsBoMnIMWaU4MFXrrEc30nVPSyunEXYGGScq3KFdYQyZhCJ6uFSjT4wdvBPWVTj3ZRlg2Z4GIAxjp09v8A==
   dependencies:
     "@shelf/types" "0.70.0"
     json.date-extensions "1.2.2"
