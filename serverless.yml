@@ -69,6 +69,8 @@ functions:
   someLambdaName:
     handler: lib/some-lambda-name/handler.handler
     name: ${self:provider.stage}-${self:service}-someLambdaName
+    tags:
+      name: someLambdaName
     events:
       - http:
           path: /{id}
