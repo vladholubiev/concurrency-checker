@@ -65,7 +65,7 @@
   },
   "resolutions": {
     "ajv": "6.12.5",
-    "aws-sdk": "2.721.0",
+    "aws-sdk": "2.804.0",
     "lodash": "4.17.20"
   },
   "dependencies": {
