@@ -36,22 +36,24 @@ provider:
   environment:
     ENVIRONMENT: ${self:provider.stage}
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1'
-  iamRoleStatements:
-    - Effect: 'Allow'
-      Action:
-        - 'xray:PutTraceSegments'
-        - 'xray:PutTelemetryRecords'
-      Resource:
-        - '*'
+  iam:
+    role:
+      statements:
+        - Effect: 'Allow'
+          Action:
+            - 'xray:PutTraceSegments'
+            - 'xray:PutTelemetryRecords'
+          Resource:
+            - '*'
 
-    - Effect: 'Allow'
-      Action:
-        - 'kms:CreateGrant'
-        - 'kms:Decrypt'
-        - 'kms:Encrypt'
-        - 'kms:GenerateDataKey'
-      Resource:
-        - 'arn:aws:kms:*:*:key/${ssm:/${self:provider.stage}/kms_key_id}'
+        - Effect: 'Allow'
+          Action:
+            - 'kms:CreateGrant'
+            - 'kms:Decrypt'
+            - 'kms:Encrypt'
+            - 'kms:GenerateDataKey'
+          Resource:
+            - 'arn:aws:kms:*:*:key/${ssm:/${self:provider.stage}/kms_key_id}'
 
 package:
   artifact: artifact.zip
