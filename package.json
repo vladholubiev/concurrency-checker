@@ -15,8 +15,6 @@
     "lint:ci": "eslint . --ext .js,.json,.ts --quiet",
     "package": "serverless package",
     "test": "TZ=UTC jest src",
-    "test:integration": "TZ=UTC jest api-tests",
-    "test:integration:staging": "ENVIRONMENT=staging API_HOST=api.gsstaging.net yarn test:integration",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"
   },
@@ -66,7 +64,7 @@
   "resolutions": {
     "ajv": "6.12.5",
     "aws-sdk": "2.804.0",
-    "lodash": "4.17.20"
+    "lodash": "4.17.21"
   },
   "dependencies": {
     "@shelf/middy-base": "1.0.0"

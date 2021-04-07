@@ -216,25 +216,6 @@ jobs:
           api_name: xxxxxx
           base_path: xxxxxx
 
-  run_api_tests:
-    executor:
-      name: node/default
-      tag: << pipeline.parameters.node_version >>
-    working_directory: ~/repo
-    environment:
-      API_HOST: api.gsstaging.net
-    steps:
-      - checkout
-      - install_deps
-      - with_env_vars_from_ssm:
-          env_var: API_HOST
-          ssm_param: /shelf_api_domain
-      - run:
-          name: run tests
-          command: |
-            source /tmp/ssm
-            yarn test:integration
-
 workflows:
   version: 2
 
@@ -318,18 +299,6 @@ workflows:
           requires:
             - deploy_prod_us
 
-      - run_api_tests:
-          name: run_api_tests_staging_us
-          context: staging-us
-          requires:
-            - deploy_staging_us
-
-      - run_api_tests:
-          name: run_api_tests_prod_us
-          context: prod-us
-          requires:
-            - deploy_prod_us
-
       - package:
           name: package_staging_eu
           context: staging-eu
@@ -397,18 +366,6 @@ workflows:
 
       - api_gw_config:
           name: api_gw_config_prod_eu
-          context: prod-eu
-          requires:
-            - deploy_prod_eu
-
-      - run_api_tests:
-          name: run_api_tests_staging_eu
-          context: staging-eu
-          requires:
-            - deploy_staging_eu
-
-      - run_api_tests:
-          name: run_api_tests_prod_eu
           context: prod-eu
           requires:
             - deploy_prod_eu
