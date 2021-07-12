@@ -77,7 +77,7 @@
     "@shelf/eslint-config": "1.5.0",
     "@shelf/prettier-config": "1.0.0",
     "@shelf/tsconfig": "0.0.6",
-    "@types/jest": "26.0.23",
+    "@types/jest": "26.0.24",
     "@types/node": "14",
     "aws-sdk": "2.880.0",
     "eslint": "7.30.0",
