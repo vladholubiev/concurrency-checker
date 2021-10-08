@@ -3,6 +3,7 @@ service: xxxxxx
 unresolvedVariablesNotificationMode: error
 
 provider:
+  architecture: arm64
   timeout: 10
   memorySize: 1536
   name: aws
