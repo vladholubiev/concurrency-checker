@@ -24,6 +24,7 @@ provider:
   apiGateway:
     minimumCompressionSize: 0
     shouldStartNameWithService: false
+    disableDefaultEndpoint: true
   apiName: ${self:provider.stage}-${self:service}
   stackTags:
     Environment: ${self:provider.stage}
