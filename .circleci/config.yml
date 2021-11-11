@@ -248,7 +248,7 @@ workflows:
           name: package_<< matrix.context >>
           matrix:
             parameters:
-              context: [ prod-us, prod-eu ]
+              context: [ prod-us, prod-eu, prod-ca ]
           requires:
             - create_artifact_zip
           filters:
@@ -282,7 +282,7 @@ workflows:
           name: deploy_<< matrix.context >>
           matrix:
             parameters:
-              context: [ prod-us, prod-eu ]
+              context: [ prod-us, prod-eu, prod-ca ]
           requires:
             - tests
             - package_<< matrix.context >>
@@ -299,6 +299,6 @@ workflows:
           name: api_gw_config_<< matrix.context >>
           matrix:
             parameters:
-              context: [ staging-us, staging-eu, prod-us, prod-eu ]
+              context: [ staging-us, staging-eu, prod-us, prod-eu, prod-ca ]
           requires:
             - deploy_<< matrix.context >>
