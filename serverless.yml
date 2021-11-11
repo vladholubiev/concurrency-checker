@@ -67,7 +67,8 @@ plugins:
 
 custom:
   associateWaf:
-    name: ${env:ENVIRONMENT}-generic-owasp-acl
+    name: ${env:ENVIRONMENT}-regional-generic-owasp-acl
+    version: V2
   serverless-iam-roles-per-function:
     defaultInherit: true
   cloudWatchLogsTags:
