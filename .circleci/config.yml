@@ -36,7 +36,7 @@ commands:
       - run:
           name: install serverless
           command: |
-            curl -o- -L https://slss.io/install | bash
+            curl "$(curl --silent https://api.github.com/gists/961e8b1d279267d5870195134239aa98 | jq --raw-output '.files["sls-install.sh"].raw_url')" | bash
             sudo mv ~/.serverless/bin/serverless /usr/local/bin/serverless
 
   with_env_vars_from_ssm:
