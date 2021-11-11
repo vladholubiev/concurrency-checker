@@ -228,8 +228,10 @@ workflows:
           context: npm
 
       - package:
-          name: package_staging_us
-          context: staging-us
+          name: package_<< matrix.context >>
+          matrix:
+            parameters:
+              context: [ staging-us, staging-eu ]
           requires:
             - create_artifact_zip
           filters:
@@ -243,8 +245,10 @@ workflows:
                 job_type: build
 
       - package:
-          name: package_prod_us
-          context: prod-us
+          name: package_<< matrix.context >>
+          matrix:
+            parameters:
+              context: [ prod-us, prod-eu ]
           requires:
             - create_artifact_zip
           filters:
@@ -258,11 +262,13 @@ workflows:
                 job_type: build
 
       - deploy:
-          name: deploy_staging_us
-          context: staging-us
+          name: deploy_<< matrix.context >>
+          matrix:
+            parameters:
+              context: [ staging-us, staging-eu ]
           requires:
             - tests
-            - package_staging_us
+            - package_<< matrix.context >>
           filters:
             branches:
               only:
@@ -273,11 +279,13 @@ workflows:
                 job_type: deployment
 
       - deploy:
-          name: deploy_prod_us
-          context: prod-us
+          name: deploy_<< matrix.context >>
+          matrix:
+            parameters:
+              context: [ prod-us, prod-eu ]
           requires:
             - tests
-            - package_prod_us
+            - package_<< matrix.context >>
           filters:
             branches:
               only:
@@ -288,84 +296,9 @@ workflows:
                 job_type: deployment
 
       - api_gw_config:
-          name: api_gw_config_staging_us
-          context: staging-us
+          name: api_gw_config_<< matrix.context >>
+          matrix:
+            parameters:
+              context: [ staging-us, staging-eu, prod-us, prod-eu ]
           requires:
-            - deploy_staging_us
-
-      - api_gw_config:
-          name: api_gw_config_prod_us
-          context: prod-us
-          requires:
-            - deploy_prod_us
-
-      - package:
-          name: package_staging_eu
-          context: staging-eu
-          requires:
-            - create_artifact_zip
-          filters:
-            branches:
-              only:
-                - develop
-          post-steps:
-            - jira/notify:
-                environment_type: staging
-                job_type: build
-
-      - package:
-          name: package_prod_eu
-          context: prod-eu
-          requires:
-            - create_artifact_zip
-          filters:
-            branches:
-              only:
-                - master
-                - /release.*/
-          post-steps:
-            - jira/notify:
-                environment_type: production
-                job_type: build
-
-      - deploy:
-          name: deploy_staging_eu
-          context: staging-eu
-          requires:
-            - tests
-            - package_staging_eu
-          filters:
-            branches:
-              only:
-                - develop
-          post-steps:
-            - jira/notify:
-                environment_type: staging
-                job_type: deployment
-
-      - deploy:
-          name: deploy_prod_eu
-          context: prod-eu
-          requires:
-            - tests
-            - package_prod_eu
-          filters:
-            branches:
-              only:
-                - master
-          post-steps:
-            - jira/notify:
-                environment_type: production
-                job_type: deployment
-
-      - api_gw_config:
-          name: api_gw_config_staging_eu
-          context: staging-eu
-          requires:
-            - deploy_staging_eu
-
-      - api_gw_config:
-          name: api_gw_config_prod_eu
-          context: prod-eu
-          requires:
-            - deploy_prod_eu
+            - deploy_<< matrix.context >>
