@@ -75,11 +75,11 @@ custom:
     Project: ${self:service}
 
 functions:
-  someLambdaName:
+  sampleLambda:
     handler: lib/some-lambda-name/handler.handler
-    name: ${self:provider.stage}-${self:service}-someLambdaName
+    name: ${self:provider.stage}-${self:service}-sampleLambda
     tags:
-      name: someLambdaName
+      name: sampleLambda
     events:
       - http:
           path: /{id}
@@ -96,21 +96,11 @@ functions:
     iamRoleStatements:
       - Effect: 'Allow'
         Action:
-          - 'ssm:GetParameters'
-        Resource:
-          - '${ssm:/${env:ENVIRONMENT}/ssm_arn_prefix}/common/mongo_url/full'
-      - Effect: 'Allow'
-        Action:
           - 'dynamodb:BatchWriteItem'
           - 'dynamodb:Query'
           - 'dynamodb:UpdateItem'
         Resource:
           - 'arn:aws:dynamodb:*:*:table/${self:provider.stage}_gems_xxxxxx'
-      - Effect: 'Allow'
-        Action:
-          - 'sns:Publish'
-        Resource:
-          - '${ssm:/${env:ENVIRONMENT}/sns_arn_prefix}_gem-rating-added'
 
 resources:
   Resources:
