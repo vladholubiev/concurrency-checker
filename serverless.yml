@@ -76,7 +76,7 @@ custom:
 
 functions:
   sampleLambda:
-    handler: lib/some-lambda-name/handler.handler
+    handler: lib/sample-lambda/handler.handler
     name: ${self:provider.stage}-${self:service}-sampleLambda
     tags:
       name: sampleLambda
