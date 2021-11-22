@@ -65,7 +65,6 @@ wercker.yml
 # misc
 *.md
 *.markdown
-*.sh
 *.map
 *.png
 *.jpg
