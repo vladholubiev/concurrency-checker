@@ -91,7 +91,6 @@ yarn.lock
 **/@shelf/**/*.mock.js
 **/@shelf/is-valid-url/lib/index.client.js
 **/@shelf/logger/node_modules/winston/dist
-**/ajv/dist
 **/ajv/scripts
 **/async-hook-jl/test
 **/async/dist/*.min.js
