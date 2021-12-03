@@ -231,7 +231,7 @@ workflows:
           name: package_<< matrix.context >>
           matrix:
             parameters:
-              context: [ staging-us, staging-eu ]
+              context: [staging-us, staging-eu]
           requires:
             - create_artifact_zip
           filters:
@@ -248,7 +248,7 @@ workflows:
           name: package_<< matrix.context >>
           matrix:
             parameters:
-              context: [ prod-us, prod-eu, prod-ca ]
+              context: [prod-us, prod-eu, prod-ca]
           requires:
             - create_artifact_zip
           filters:
@@ -261,11 +261,23 @@ workflows:
                 environment_type: production
                 job_type: build
 
+      - package:
+          name: package_<< matrix.context >>
+          matrix:
+            parameters:
+              context: [pentest]
+          requires:
+            - create_artifact_zip
+          filters:
+            branches:
+              only:
+                - release/pentest
+
       - deploy:
           name: deploy_<< matrix.context >>
           matrix:
             parameters:
-              context: [ staging-us, staging-eu ]
+              context: [staging-us, staging-eu]
           requires:
             - tests
             - package_<< matrix.context >>
@@ -282,7 +294,7 @@ workflows:
           name: deploy_<< matrix.context >>
           matrix:
             parameters:
-              context: [ prod-us, prod-eu, prod-ca ]
+              context: [prod-us, prod-eu, prod-ca]
           requires:
             - tests
             - package_<< matrix.context >>
@@ -295,10 +307,23 @@ workflows:
                 environment_type: production
                 job_type: deployment
 
+      - deploy:
+          name: deploy_<< matrix.context >>
+          matrix:
+            parameters:
+              context: [pentest]
+          requires:
+            - tests
+            - package_<< matrix.context >>
+          filters:
+            branches:
+              only:
+                - release/pentest
+
       - api_gw_config:
           name: api_gw_config_<< matrix.context >>
           matrix:
             parameters:
-              context: [ staging-us, staging-eu, prod-us, prod-eu, prod-ca ]
+              context: [staging-us, staging-eu, prod-us, prod-eu, prod-ca, pentest]
           requires:
             - deploy_<< matrix.context >>
