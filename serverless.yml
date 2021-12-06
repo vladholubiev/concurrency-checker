@@ -1,6 +1,7 @@
 service: xxxxxx
 
 unresolvedVariablesNotificationMode: error
+variablesResolutionMode: 20210326
 
 provider:
   timeout: 10
@@ -13,7 +14,8 @@ provider:
   versionFunctions: false
   tracing:
     lambda: true
-  deploymentBucket: ${ssm:/${self:provider.stage}/sls_artifacts_s3_bucket_name}
+  deploymentBucket:
+    name: ${ssm:/${env:ENVIRONMENT}/sls_artifacts_s3_bucket_name}
   logRetentionInDays: 400
   logs:
     restApi:
