@@ -15,8 +15,6 @@ provider:
   tracing:
     lambda: true
   deploymentBucket:
-    # set the deployment bucket name as separate key, because the new variables resolver(that is used in SLS v3)
-    # throws an error if set this value directly to "deploymentBucket" key
     name: ${ssm:/${env:ENVIRONMENT}/sls_artifacts_s3_bucket_name}
   logRetentionInDays: 400
   logs:
