@@ -1,6 +1,12 @@
 service: xxxxxx
 
 unresolvedVariablesNotificationMode: error
+# To migrate to serverless v3 we need to resolve all deprecations that are shown when running "serverless" command,
+# as mentioned here("Easy to upgrade" paragraph): https://www.serverless.com/blog/serverless-framework-v3-beta.
+# Need to set "20210326" value for the "variablesResolutionMode" to use new resolver, because
+# here: https://www.serverless.com/framework/docs/deprecations/#NEW_VARIABLES_RESOLVER is mentioned that in v3
+# we will receive unconditional errors from new resolver instead of warning messages
+variablesResolutionMode: 20210326
 
 provider:
   timeout: 10
@@ -13,7 +19,10 @@ provider:
   versionFunctions: false
   tracing:
     lambda: true
-  deploymentBucket: ${ssm:/${self:provider.stage}/sls_artifacts_s3_bucket_name}
+  deploymentBucket:
+    # set the deployment bucket name as separate key, because the new variables resolver(that is used in SLS v3)
+    # throws an error if set this value directly to "deploymentBucket" key
+    name: ${ssm:/${env:ENVIRONMENT}/sls_artifacts_s3_bucket_name}
   logRetentionInDays: 400
   logs:
     restApi:
