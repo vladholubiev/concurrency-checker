@@ -74,7 +74,7 @@
     "@shelf/lambda-test-utils": "3.0.0",
     "@shelf/prettier-config": "1.0.0",
     "@shelf/tsconfig": "0.0.6",
-    "@types/aws-lambda": "8.10.85",
+    "@types/aws-lambda": "8.10.86",
     "@types/jest": "27.0.3",
     "@types/node": "14",
     "aws-sdk": "2.1001.0",
