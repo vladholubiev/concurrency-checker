@@ -66,8 +66,8 @@
   },
   "devDependencies": {
     "@babel/cli": "7.16.0",
-    "@babel/core": "7.16.0",
-    "@babel/node": "7.16.0",
+    "@babel/core": "7.16.5",
+    "@babel/node": "7.16.5",
     "@shelf/aws-sdk-helpers": "5.1.27",
     "@shelf/babel-config": "0.1.5",
     "@shelf/eslint-config": "2.5.2",
