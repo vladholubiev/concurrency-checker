@@ -66,6 +66,7 @@ plugins:
   - serverless-associate-waf
   - serverless-iam-roles-per-function
   - serverless-tag-cloud-watch-log-groups
+  - '@shelf/serverless-simplify-default-exec-role-plugin'
 
 custom:
   associateWaf:
