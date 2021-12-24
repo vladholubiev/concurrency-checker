@@ -71,6 +71,7 @@
     "@shelf/eslint-config": "2.5.2",
     "@shelf/lambda-test-utils": "3.0.0",
     "@shelf/prettier-config": "1.0.0",
+    "@shelf/serverless-simplify-default-exec-role-plugin": "0.0.1",
     "@shelf/tsconfig": "0.0.6",
     "@types/aws-lambda": "8.10.88",
     "@types/jest": "27.0.3",

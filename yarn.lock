@@ -2144,6 +2144,11 @@
   resolved "https://registry.yarnpkg.com/@shelf/prettier-config/-/prettier-config-1.0.0.tgz#810e7191aa44899737ce3bec0cc0b73d205f8763"
   integrity sha512-XA+bjQ8LlXo/M+rQ13wrN2CgAdwydgxg2crLy8CWq0lxaUgG61Rngvp5DAP7qU4MrOk+WmBYbKzbZVsi58lWCg==
 
+"@shelf/serverless-simplify-default-exec-role-plugin@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@shelf/serverless-simplify-default-exec-role-plugin/-/serverless-simplify-default-exec-role-plugin-0.0.1.tgz#ad7e3ac5cccf12baf442acbac65e32afe834008d"
+  integrity sha512-N003XVRvzTgssjRa+4h7IRUmMZ4J6GxxrRS/oX8S4vqi862MKLjB6lrcw5kshLJv4sAIOQ3GSX26GqGwyAfqPg==
+
 "@shelf/tsconfig@0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@shelf/tsconfig/-/tsconfig-0.0.6.tgz#694770320283000ac354f88ccf3c89f249818dd0"
