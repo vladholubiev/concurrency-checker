@@ -1935,39 +1935,44 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@middy/core@1.5.2":
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/@middy/core/-/core-1.5.2.tgz#41e09c541ad13fd7acc48a63a72a211206ce2f2b"
-  integrity sha512-ja9hE3BheH9brkpFvNZ8bEQjopTT6ldGSbCPSGZk3UVgC9i9SdhoPOoFetrl3sOBO/sG6L8kKPxxUWeo1aO9Ug==
+"@middy/core@2.5.4":
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/@middy/core/-/core-2.5.4.tgz#46287e3a729a5b2e3b199bf688255842e5462f33"
+  integrity sha512-WQFUFhCG0P2rmNDBX8x5RiREfSUnMhq77QyrwIZg2/gLUhuOZa8TPFFKzIFBz+blvw9Ep41LRrWdV/gzYwMuww==
+
+"@middy/do-not-wait-for-empty-event-loop@2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@middy/do-not-wait-for-empty-event-loop/-/do-not-wait-for-empty-event-loop-2.5.3.tgz#530def0602d4392af298c60c318cf4d1713b0a47"
+  integrity sha512-UcnOtLOBZQHTKTzw5ORLo8Mog7rnXptnfGOCKZhjkp0+8ywnG0hvKIZ2X7UwX6iqHavMbcvnmI+eZC/pq7JLIg==
+
+"@middy/http-cors@2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@middy/http-cors/-/http-cors-2.5.3.tgz#4f394118e60bc3dc0ae1daa2ee7767b23c55303b"
+  integrity sha512-bj3+wx7eSrIgrfeK+6aQyTA/T9KFQPs/y11Mp0dkgCRq/jlx3wKkTVKcILzFXSqgplNesf3sUCs8+YI0T4DS4w==
   dependencies:
-    once "^1.4.0"
+    "@middy/util" "^2.5.3"
 
-"@middy/do-not-wait-for-empty-event-loop@1.5.2":
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/@middy/do-not-wait-for-empty-event-loop/-/do-not-wait-for-empty-event-loop-1.5.2.tgz#a1259fb7ba56c14929e2688e99fca5ebc3addc48"
-  integrity sha512-2oZrUeE2pnqT1kci/RDiHI9ehA8hFktwe2P9wh8x0w56wYOF57A4HdOAFC+7aBDMOU2L0lqkL80yOjbp1ZfgtQ==
+"@middy/http-event-normalizer@2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@middy/http-event-normalizer/-/http-event-normalizer-2.5.3.tgz#5a1c95772396fcc914745e4becaebfca8a6fd2d6"
+  integrity sha512-dycuYvwglyLaP3tdb7Fbk1jFV/chp1QfWqzthwqexoS44QqXzXi66yudTvDPsgu5vZ8/GLq4qjHNkce6iNfYPw==
 
-"@middy/http-cors@1.5.2":
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/@middy/http-cors/-/http-cors-1.5.2.tgz#ce3a9a9ce95a6c7e41f803127c1450de79bb1de1"
-  integrity sha512-B+9rZv/cO+blbZ7RgZVRMCIbpawOJtmwsQvB6ctiodpTkTkjV348FPVFVIB+MBr42zWTUPsF2HZZCiL3qTyhiA==
+"@middy/http-header-normalizer@2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@middy/http-header-normalizer/-/http-header-normalizer-2.5.3.tgz#f9841156d8e6bb716219430b188859a07f151632"
+  integrity sha512-VsI87Q+S0NX5GJ3rHfdKKQxY/EP7m/9BwXNBZQYD04KGn1eCxitejEPl9geyFQGZGjxQAnnpPBd2A2D9T6P1/Q==
 
-"@middy/http-event-normalizer@1.5.2":
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/@middy/http-event-normalizer/-/http-event-normalizer-1.5.2.tgz#3fa59f5230e0ea76c76804ee04381c742e324c43"
-  integrity sha512-6Dvlfe64ZnM5JRNfHMSWsPQMtW7XZkMsU6GXsqg8pjGh8Rw25toBK+m2JE7PPx4Ro5ZIAk/66VNph0KodByIbA==
-
-"@middy/http-header-normalizer@1.5.2":
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/@middy/http-header-normalizer/-/http-header-normalizer-1.5.2.tgz#36c7809c8a02c8c77c013fa423b5bc76ed6554f3"
-  integrity sha512-WdFQu+cZn+ReBKAtWDGmZE9c7PAhxRzYrW+QEfds0f0W81aqcS7afNTaKBLRv22ukFRu+5Kc+K5z/vlG/Otldg==
-
-"@middy/ssm@1.5.2":
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/@middy/ssm/-/ssm-1.5.2.tgz#1f8668427850b13e185e40950caefd6d8e65e2f6"
-  integrity sha512-fxUBhHeEPNM1wgb+2sq4kIiEJAIesT8rh/uJ3r9t3DvMcYKUC/nzheGo9qUgBEleRbxV3CP+Wst94oaflYm3QA==
+"@middy/ssm@2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@middy/ssm/-/ssm-2.5.3.tgz#ef00b625a577c7205afb8db71f3b9cb8dea5eba9"
+  integrity sha512-PFKKkE5FBP3a++42geAf7YJvq1/AjywxiyEOOO6aWxjQrDFvdsJ9Xh52fqSjCu2RfPsmExB6fIWsZg1JpjOqig==
   dependencies:
-    "@types/node" "^10.0.8"
+    "@middy/util" "^2.5.3"
+
+"@middy/util@^2.5.3":
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/@middy/util/-/util-2.5.4.tgz#1cd1689f179b6f43eefe0cdedba717303429d084"
+  integrity sha512-/715LFKuz3EAao+e+4eWjO0fpJbtFjXAAA6nVcShnFKaU/s+P5qqRD9X8+iU+R1q7uFidd4eWnDhmpqJ43ZY8A==
 
 "@next/eslint-plugin-next@11.1.2":
   version "11.1.2"
@@ -2078,12 +2083,12 @@
     "@shelf/mocks" "0.2.439"
     lodash "4.17.21"
 
-"@shelf/lambda-xray-instrument@^1.0.12":
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/@shelf/lambda-xray-instrument/-/lambda-xray-instrument-1.0.12.tgz#b3962972b5b9e0b4d95f38b334b7252d41c4c58d"
-  integrity sha512-y8ZIKW3GhbRWVnM/H2RJ1cNsmpRB3Lg44P/SeTKFRBRHeXHvfheDr7K09f5eLJcGA9h+Sq4BS2WDCICQKkZ+mQ==
+"@shelf/lambda-xray-instrument@^2.1.7":
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/@shelf/lambda-xray-instrument/-/lambda-xray-instrument-2.1.7.tgz#11390ce6af973f405af47b2931d3b6372513bab0"
+  integrity sha512-2NFBNRAfuQ0/8zQkUuh44lOZ1/5wuAxmOfyb4vNy95f/GT2y+SqYLpp41xVf+j+cncBNsBQxNn5gBUDVbdBSUw==
   dependencies:
-    aws-xray-sdk-core "3.3.3"
+    aws-xray-sdk-core "3.3.4"
 
 "@shelf/logger@4.1.7":
   version "4.1.7"
@@ -2099,38 +2104,36 @@
     traverse "0.6.6"
     winston "3.3.3"
 
-"@shelf/middy-base@1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-base/-/middy-base-1.0.13.tgz#b4b9ea80f9e6670b274159810a918af8defba341"
-  integrity sha512-0Fjkfh7lA+RbR1LwKspBvjs/dWF/WxTGP6Q1n0CusD0x5dgPkwKQXdMy/GwZtbHClswoi5UIZZYcxmqnm9LPjA==
+"@shelf/middy-base@2.3.8":
+  version "2.3.8"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-base/-/middy-base-2.3.8.tgz#80c6f3d6ab49b86c5fa3b95ee6f5e32235afbbf4"
+  integrity sha512-Ml+ttCacDVgpIPpfJr+mHtnGl5Gmx4a0xcbJMvkYZwWPObUbNSZpCt+7rIN/mnR8xck32y1ZtnmXYATTDeougQ==
   dependencies:
-    "@middy/do-not-wait-for-empty-event-loop" "1.5.2"
-    "@middy/http-cors" "1.5.2"
-    "@middy/http-event-normalizer" "1.5.2"
-    "@middy/http-header-normalizer" "1.5.2"
-    "@middy/ssm" "1.5.2"
-    "@shelf/lambda-xray-instrument" "^1.0.12"
-    "@shelf/middy-http-error-handler" "^1.0.13"
-    "@shelf/middy-logger" "^1.0.13"
-    "@shelf/middy-unmarshall-authorizer" "^2.0.13"
+    "@middy/do-not-wait-for-empty-event-loop" "2.5.3"
+    "@middy/http-cors" "2.5.3"
+    "@middy/http-event-normalizer" "2.5.3"
+    "@middy/http-header-normalizer" "2.5.3"
+    "@middy/ssm" "2.5.3"
+    "@shelf/lambda-xray-instrument" "^2.1.7"
+    "@shelf/middy-http-error-handler" "^2.2.7"
+    "@shelf/middy-logger" "^2.1.7"
+    "@shelf/middy-unmarshall-authorizer" "^3.1.7"
     lodash "4.17.21"
 
-"@shelf/middy-http-error-handler@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-http-error-handler/-/middy-http-error-handler-1.0.13.tgz#a372e5e81738a84c7a40634b9b24d299dab83307"
-  integrity sha512-YspGo7s9+7gWm7wK0MYYESIju8/YIMQQXdO/+Vz4IKdG8VRfOoCWp1/duVq14A473GvI1JgY+pnY61ikzVyXOA==
-  dependencies:
-    ajv "6.12.6"
+"@shelf/middy-http-error-handler@^2.2.7":
+  version "2.2.7"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-http-error-handler/-/middy-http-error-handler-2.2.7.tgz#13332c80eba1fcf004fde77f5120aec179908814"
+  integrity sha512-bCsVMkxmO87yYE6WMhEIc8ZULtrRVxNiANsBGLsm3/GVIC2Icdvl45q58QSY5ARea4zoLEtqbjVfUpoClu0xjg==
 
-"@shelf/middy-logger@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-logger/-/middy-logger-1.0.13.tgz#477ddc162bb0d7483c2da0acdb35d228192221b0"
-  integrity sha512-MMxLmWICzbLbTpVu1FoM0mEqKwvfCOxsMm/GoL4SFAl1Gdgzrisi9k/OUAgPydIeZwvIcJn6lWz/VHaS5Y6BiA==
+"@shelf/middy-logger@^2.1.7":
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-logger/-/middy-logger-2.1.7.tgz#7cf10a6802160531220008fad33c8afac90515dd"
+  integrity sha512-C7U1MLQilLvvN04juPDJdwWqVWNAKq24LtnAml5DEcFBI0zuT66vfllMgIgz1UKHiXHY5Khs5oi9rpw1dIGMsQ==
 
-"@shelf/middy-unmarshall-authorizer@^2.0.13":
-  version "2.0.13"
-  resolved "https://registry.yarnpkg.com/@shelf/middy-unmarshall-authorizer/-/middy-unmarshall-authorizer-2.0.13.tgz#21d95be54f3287ba2555e3793994c17617cc7aea"
-  integrity sha512-ZIuJbkl81SLYR9tuOYEpwo4XdLG3rHWxkU1TqKVeBbdsYifNoMpDh6g64PWjbR4o1Oh8agmnp1ndceK2oBEgcA==
+"@shelf/middy-unmarshall-authorizer@^3.1.7":
+  version "3.1.7"
+  resolved "https://registry.yarnpkg.com/@shelf/middy-unmarshall-authorizer/-/middy-unmarshall-authorizer-3.1.7.tgz#15102f6d0f1ce15b4b6e3bc0cb7951f70908baa2"
+  integrity sha512-BiT3aHzIDr8jHUultSfKGFJQGRV5KqOtve1XBod7dPrkb6MNOvqKwihw3C75wYAY+WMMsvM/Tq4U9Np5NCYDWA==
   dependencies:
     json.date-extensions "1.2.2"
 
@@ -2313,11 +2316,6 @@
   version "14.14.25"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.25.tgz#15967a7b577ff81383f9b888aa6705d43fbbae93"
   integrity sha512-EPpXLOVqDvisVxtlbvzfyqSsFeQxltFbluZNRndIb8tr9KiBnYNLzrc1N3pyKUCww2RNrfHDViqDWWE1LCJQtQ==
-
-"@types/node@^10.0.8":
-  version "10.17.17"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.17.17.tgz#7a183163a9e6ff720d86502db23ba4aade5999b8"
-  integrity sha512-gpNnRnZP3VWzzj5k3qrpRC6Rk3H/uclhAVo1aIvwzK5p5cOrs9yEyQ8H/HBsBY0u5rrWxXEiVPQ0dEB6pkjE8Q==
 
 "@types/prettier@^2.1.5":
   version "2.2.3"
@@ -2610,7 +2608,7 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-ajv@6.12.5, ajv@6.12.6, ajv@^6.10.0, ajv@^6.12.4:
+ajv@^6.10.0, ajv@^6.12.4:
   version "6.12.5"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.5.tgz#19b0e8bae8f476e5ba666300387775fb1a00a4da"
   integrity sha512-lRF8RORchjpKG50/WFf8xmg7sgCLFiYNNnqdKflk63whMQcWR5ngGjiSXkL9bjxy6B2npOK2HSMN49jEBMSkag==
@@ -2818,10 +2816,10 @@ aws-sdk@2.1001.0, aws-sdk@^2.0.4:
     uuid "3.3.2"
     xml2js "0.4.19"
 
-aws-xray-sdk-core@3.3.3:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/aws-xray-sdk-core/-/aws-xray-sdk-core-3.3.3.tgz#e63f4597c4e5210fbde925db776e8014d5bff7c3"
-  integrity sha512-S8o+ZY12wEnDQolC5RGQ8RHZqezHeV3l/ODqrYOJAlRjT92FDutQkQqTfr+hD1Ia+puIXzL9U7eyVSsKmoI+1w==
+aws-xray-sdk-core@3.3.4:
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/aws-xray-sdk-core/-/aws-xray-sdk-core-3.3.4.tgz#9530fe557b0cb5324b26273e33dcc71036017d64"
+  integrity sha512-GGnYAQgtclLHIBReOtsUgbDDCar0LR2TaHCWlQhPrEVVayrSAZQ4y+SlXN5YIadxMec4/f5dbF69wMbug9D5Ww==
   dependencies:
     "@aws-sdk/service-error-classification" "^3.4.1"
     "@aws-sdk/types" "^3.4.1"
@@ -5999,7 +5997,7 @@ object.values@^1.1.5:
     define-properties "^1.1.3"
     es-abstract "^1.19.1"
 
-once@^1.3.0, once@^1.4.0:
+once@^1.3.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
   integrity sha1-WDsap3WWHUsROsF9nFC6753Xa9E=
