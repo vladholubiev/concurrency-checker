@@ -1,6 +1,7 @@
-import {APIGatewayProxyResult} from 'aws-lambda';
+import type {APIGatewayProxyResult} from 'aws-lambda';
 import middy from '@middy/core';
-import {APIGatewayProxyEventWithAuthorizer, getMiddyBaseHTTPMiddlewares} from '@shelf/middy-base';
+import type {APIGatewayProxyEventWithAuthorizer} from '@shelf/middy-base';
+import {getMiddyBaseHTTPMiddlewares} from '@shelf/middy-base';
 
 const listGemsLinkedToObjectHandler = async (
   event: APIGatewayProxyEventWithAuthorizer
