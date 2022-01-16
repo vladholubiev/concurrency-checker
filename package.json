@@ -57,7 +57,7 @@
     "lodash": "4.17.21"
   },
   "dependencies": {
-    "@middy/core": "2.5.4",
+    "@middy/core": "2.5.5",
     "@shelf/logger": "4.1.7",
     "@shelf/middy-base": "2.3.8"
   },

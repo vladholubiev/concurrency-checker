@@ -2027,10 +2027,10 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@middy/core@2.5.4":
-  version "2.5.4"
-  resolved "https://registry.yarnpkg.com/@middy/core/-/core-2.5.4.tgz#46287e3a729a5b2e3b199bf688255842e5462f33"
-  integrity sha512-WQFUFhCG0P2rmNDBX8x5RiREfSUnMhq77QyrwIZg2/gLUhuOZa8TPFFKzIFBz+blvw9Ep41LRrWdV/gzYwMuww==
+"@middy/core@2.5.5":
+  version "2.5.5"
+  resolved "https://registry.yarnpkg.com/@middy/core/-/core-2.5.5.tgz#e56046781dd85ab187227251e2314706d35794cd"
+  integrity sha512-DejbKVPfLWQeq+KUhdTHxBjVJx/f/N2u6MgkxDhFygF+KShRQGCcaIpxdu36m1GgB3stlwfrWAFR+7jKEytVrQ==
 
 "@middy/do-not-wait-for-empty-event-loop@2.5.3":
   version "2.5.3"
