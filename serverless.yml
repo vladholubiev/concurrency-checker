@@ -10,7 +10,7 @@ provider:
   stage: ${env:ENVIRONMENT}
   region: ${env:AWS_DEFAULT_REGION}
   runtime: nodejs14.x
-  endpointType: REGIONAL
+  endpointType: regional
   versionFunctions: false
   tracing:
     lambda: true
