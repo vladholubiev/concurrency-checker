@@ -1,1 +1,3 @@
-jest.mock('@middy/ssm', () => () => ({before: () => Promise.resolve()}));
+jest.mock('@middy/ssm', () => () => {
+  return {before: () => Promise.resolve()};
+});
