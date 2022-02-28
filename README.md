@@ -32,6 +32,7 @@ secret_key = "yyy"
 And finally deploy:
 
 ```shell
+export GODEBUG=asyncpreemptoff=1;
 terraform init
 terraform apply
 ```
