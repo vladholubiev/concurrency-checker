@@ -33,24 +33,28 @@ const payload = {
 };
 
 (async () => {
-  for (const region of REGIONS) {
-    const sqs = new AWS.SQS({region});
+  await pMap(
+    REGIONS,
+    async region => {
+      const sqs = new AWS.SQS({region});
 
-    await pMap(
-      times(1000),
-      async () => {
-        await sqs
-          .sendMessage({
-            QueueUrl: `https://sqs.${region}.amazonaws.com/${process.env.AWS_ACC_ID}/requests`,
-            MessageBody: JSON.stringify(payload),
-          })
-          .promise();
-      },
-      {concurrency: 100, stopOnError: false}
-    );
+      await pMap(
+        times(1000),
+        async () => {
+          await sqs
+            .sendMessage({
+              QueueUrl: `https://sqs.${region}.amazonaws.com/${process.env.AWS_ACC_ID}/requests`,
+              MessageBody: JSON.stringify(payload),
+            })
+            .promise();
+        },
+        {concurrency: 100, stopOnError: false}
+      );
 
-    console.log(`${region}: dispatched`);
-  }
+      console.log(`${region}: dispatched`);
+    },
+    {concurrency: 10, stopOnError: false}
+  );
 
   process.exit(0);
 })();
