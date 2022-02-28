@@ -5,7 +5,7 @@ resource "aws_lambda_function" "process" {
   source_code_hash = filebase64sha256("${path.module}/../../../artifact.zip")
   role             = aws_iam_role.main.arn
   runtime          = "nodejs14.x"
-  handler          = "lib/handler.handler"
+  handler          = "process/lib/process/handler.handler"
   memory_size      = 1024
   timeout          = 60
   publish          = true
