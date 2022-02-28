@@ -1,6 +1,3 @@
-variable "access_key" {}
-variable "secret_key" {}
-
 terraform {
   backend "local" {
     path = "terraform.tfstate"
