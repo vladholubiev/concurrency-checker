@@ -22,6 +22,7 @@ constructs:
     type: queue
     worker:
       handler: lib/process/handler.handler
+      timeout: 60
 
 plugins:
   - serverless-lift
