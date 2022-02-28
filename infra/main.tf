@@ -45,3 +45,115 @@ provider "aws" {
   access_key = var.access_key
   secret_key = var.secret_key
 }
+
+provider "aws" {
+  region     = "ap-southeast-3"
+  alias      = "ap_southeast_3"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "ap-southeast-1"
+  alias      = "ap_southeast_1"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "ap-southeast-2"
+  alias      = "ap_southeast_2"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "ap-south-1"
+  alias      = "ap_south_1"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "ap-northeast-3"
+  alias      = "ap_northeast_3"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "ap-northeast-2"
+  alias      = "ap_northeast_2"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "ap-northeast-1"
+  alias      = "ap_northeast_1"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "ca-central-1"
+  alias      = "ca_central_1"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "eu-central-1"
+  alias      = "eu_central_1"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "eu-west-1"
+  alias      = "eu_west_1"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "eu-west-2"
+  alias      = "eu_west_2"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "eu-west-3"
+  alias      = "eu_west_3"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "eu-south-1"
+  alias      = "eu_south_1"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "eu-north-1"
+  alias      = "eu_north_1"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "me-south-1"
+  alias      = "me_south_1"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "sa-east-1"
+  alias      = "sa_east_1"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
