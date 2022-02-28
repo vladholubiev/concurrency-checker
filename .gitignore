@@ -25,3 +25,7 @@ draft.js
 .idea/$PRODUCT_WORKSPACE_FILE$
 .idea/.gitignore
 !.husky/_/husky.sh
+
+
+local.auto.tfvars
+
