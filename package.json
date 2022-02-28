@@ -27,28 +27,6 @@
     "extends": "@shelf/babel-config/backend"
   },
   "prettier": "@shelf/prettier-config",
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.ts",
-      "!src/**/schema.ts",
-      "!src/**/types.ts"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 90,
-        "functions": 90,
-        "lines": 90,
-        "statements": 90
-      }
-    },
-    "reporters": [
-      "default",
-      "jest-junit"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/common-mocks.js"
-    ]
-  },
   "resolutions": {
     "aws-sdk": "2.1001.0",
     "lodash": "4.17.21"
@@ -74,13 +52,11 @@
     "@types/node": "14",
     "@types/node-fetch": "2.6.1",
     "aws-sdk": "2.1001.0",
-    "babel-jest": "27.4.6",
-    "eslint": "8.8.0",
+    "eslint": "8.10.0",
     "husky": "7.0.4",
-    "jest": "27.4.7",
-    "jest-junit": "13.0.0",
     "lint-staged": "12.3.3",
     "prettier": "2.5.1",
+    "serverless-lift": "1.12.1",
     "typescript": "4.5.5"
   }
 }

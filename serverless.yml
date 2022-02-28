@@ -5,32 +5,23 @@ provider:
   memorySize: 1024
   profile: concurrency
   name: aws
-  stage: ${env:ENVIRONMENT}
-  region: ${env:AWS_DEFAULT_REGION}
+  stage: staging
+  region: us-east-1
   runtime: nodejs14.x
   endpointType: regional
   versionFunctions: false
   tracing:
     lambda: false
     apiGateway: false
-  logRetentionInDays: 3
+  logRetentionInDays: 1
   environment:
-    ENVIRONMENT: ${self:provider.stage}
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1'
-  iam:
-    role:
-      statements:
-        - Effect: 'Allow'
-          Action:
-            - 'xray:PutTraceSegments'
-            - 'xray:PutTelemetryRecords'
-          Resource:
-            - '*'
 
-functions:
-  process:
-    handler: lib/process/handler.handler
-    events:
-      - sqs:
-          arn: arn:aws:sqs:us-east-1:494014222317:requests
-          batchSize: 1
+constructs:
+  requests:
+    type: queue
+    worker:
+      handler: lib/process/handler.handler
+
+plugins:
+  - serverless-lift
