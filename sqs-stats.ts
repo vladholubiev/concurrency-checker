@@ -1,9 +1,9 @@
 import AWS from 'aws-sdk';
 
-const regions = ['us-east-1'];
+const REGIONS = ['us-east-1'];
 
 (async () => {
-  for (const region of regions) {
+  for (const region of REGIONS) {
     const sqs = new AWS.SQS({region});
 
     const resp: any = await sqs
