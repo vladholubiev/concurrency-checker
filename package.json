@@ -6,12 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf lib/ && babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts'",
-    "coverage": "yarn test --coverage",
-    "deploy": "serverless deploy --package .serverless",
     "lint": "yarn lint:ci --fix",
-    "lint:ci": "eslint . --ext .js,.json,.ts --quiet",
-    "package": "serverless package",
-    "test": "TZ=UTC jest src",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"
   },
