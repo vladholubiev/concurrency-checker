@@ -39,6 +39,7 @@ terraform apply
 ```shell
 export AWS_ACCESS_KEY_ID=xxx
 export AWS_SECRET_ACCESS_KEY=yyy
+export AWS_ACC_ID=111
 
 ts-node send-to-sqs.ts
 ```
@@ -48,6 +49,7 @@ ts-node send-to-sqs.ts
 ```shell
 export AWS_ACCESS_KEY_ID=xxx
 export AWS_SECRET_ACCESS_KEY=yyy
+export AWS_ACC_ID=111
 
 ts-node print-sqs-stats.ts
 ```
