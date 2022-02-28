@@ -57,7 +57,7 @@ const payload = {
       const sqs = new AWS.SQS({region});
 
       await pMap(
-        times(5),
+        times(1000),
         async () => {
           await sqs
             .sendMessage({
