@@ -28,7 +28,7 @@ async function makeRequest(item: any): Promise<void> {
 
   const resp = await fetch(item.url, req);
 
-  await Promise.race([resp.text(), delay(4000)]);
+  await Promise.race([resp.text(), delay(1000)]);
 
   console.log(resp.status);
 }
