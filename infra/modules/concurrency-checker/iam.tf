@@ -1,16 +1,16 @@
 resource "aws_iam_role" "main" {
-  provider           = aws.us_east_1
+  provider           = aws.primary
   assume_role_policy = data.aws_iam_policy_document.main.json
 }
 
 resource "aws_iam_role_policy_attachment" "main" {
-  provider   = aws.us_east_1
+  provider   = aws.primary
   role       = aws_iam_role.main.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
 resource "aws_iam_role_policy_attachment" "sqs" {
-  provider   = aws.us_east_1
+  provider   = aws.primary
   role       = aws_iam_role.main.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaSQSQueueExecutionRole"
 }

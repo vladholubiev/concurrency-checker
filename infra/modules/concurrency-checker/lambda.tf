@@ -1,8 +1,8 @@
 resource "aws_lambda_function" "process" {
-  provider         = aws.us_east_1
+  provider         = aws.primary
   function_name    = "process"
   filename         = "${path.module}/../artifact.zip"
-  source_code_hash = filebase64sha256("${path.module}/../artifact.zip")
+  source_code_hash = filebase64sha256("${path.module}/../../../artifact.zip")
   role             = aws_iam_role.main.arn
   runtime          = "nodejs14.x"
   handler          = "process/lib/handler.handler"
@@ -12,7 +12,7 @@ resource "aws_lambda_function" "process" {
 }
 
 resource "aws_lambda_event_source_mapping" "process" {
-  provider         = aws.us_east_1
+  provider         = aws.primary
   event_source_arn = aws_sqs_queue.requests.arn
   function_name    = aws_lambda_function.process.arn
   batch_size       = 1
