@@ -9,6 +9,12 @@ resource "aws_iam_role_policy_attachment" "main" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
+resource "aws_iam_role_policy_attachment" "sqs" {
+  provider   = aws.us_east_1
+  role       = aws_iam_role.main.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaSQSQueueExecutionRole"
+}
+
 data "aws_iam_policy_document" "main" {
   statement {
     actions = [
