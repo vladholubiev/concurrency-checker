@@ -41,7 +41,7 @@ const payload = {
       async () => {
         await sqs
           .sendMessage({
-            QueueUrl: `https://sqs.us-east-1.amazonaws.com/${process.env.AWS_ACC_ID}/requests`,
+            QueueUrl: `https://sqs.${region}.amazonaws.com/${process.env.AWS_ACC_ID}/requests`,
             MessageBody: JSON.stringify(payload),
           })
           .promise();
