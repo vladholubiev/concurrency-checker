@@ -1,7 +1,7 @@
 resource "aws_lambda_function" "process" {
   provider         = aws.primary
   function_name    = "process"
-  filename         = "${path.module}/../artifact.zip"
+  filename         = "${path.module}/../../../artifact.zip"
   source_code_hash = filebase64sha256("${path.module}/../../../artifact.zip")
   role             = aws_iam_role.main.arn
   runtime          = "nodejs14.x"
