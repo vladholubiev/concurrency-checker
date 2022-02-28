@@ -1,16 +1,15 @@
 import type {SQSHandler} from 'aws-lambda';
 import fetch from 'node-fetch';
 import pMap from 'p-map';
+import {times} from 'lodash';
 
 export const handler: SQSHandler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
 
-  const data: {url: string; method: string; body?: string}[] = JSON.parse(event.Records[0].body);
-  console.log(data);
+  const info: {url: string; method: string; body?: string} = JSON.parse(event.Records[0].body);
+  const data = times(10000, () => info);
 
-  for (let i = 0; i < 1000; i++) {
-    await pMap(data, makeRequest, {concurrency: 500, stopOnError: false});
-  }
+  await pMap(data, makeRequest, {concurrency: 500, stopOnError: false});
 };
 
 async function makeRequest(item: any): Promise<void> {
