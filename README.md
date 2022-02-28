@@ -16,6 +16,8 @@ yarn
 
 # Deploy
 
+First, enable all the AWS regions here: https://console.aws.amazon.com/billing/home?#/account
+
 ```shell
 cd infra
 ```
