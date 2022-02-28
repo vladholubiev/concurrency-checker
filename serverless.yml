@@ -1,11 +1,9 @@
-service: xxxxxx
-
-unresolvedVariablesNotificationMode: error
-variablesResolutionMode: 20210326
+service: concurrency
 
 provider:
-  timeout: 10
-  memorySize: 1536
+  timeout: 60
+  memorySize: 1024
+  profile: concurrency
   name: aws
   stage: ${env:ENVIRONMENT}
   region: ${env:AWS_DEFAULT_REGION}
@@ -13,30 +11,9 @@ provider:
   endpointType: regional
   versionFunctions: false
   tracing:
-    lambda: true
-  deploymentBucket:
-    name: ${ssm:/${env:ENVIRONMENT}/sls_artifacts_s3_bucket_name}
-  logRetentionInDays: 400
-  logs:
-    restApi:
-      accessLogging: true
-      format: '{"requestTime":"$context.requestTime","requestId":"$context.requestId","httpMethod":"$context.httpMethod","path":"$context.path","resourcePath":"$context.resourcePath","status":$context.status,"responseLatency":$context.responseLatency,"xrayTraceId":"$context.xrayTraceId","integrationRequestId":"$context.integration.requestId","functionResponseStatus":"$context.integration.status","integrationLatency":"$context.integration.latency","integrationServiceStatus":"$context.integration.integrationStatus","authorizeStatus":"$context.authorize.status","authorizerStatus":"$context.authorizer.status","authorizerLatency":"$context.authorizer.latency","authorizerRequestId":"$context.authorizer.requestId","ip":"$context.identity.sourceIp","userAgent":"$context.identity.userAgent","principalId":"$context.authorizer.principalId"}'
-      executionLogging: false # Turn off execution logs b/c they're too noisy.
-      role: ${ssm:/all/api_gw_logs_role_arn}
-  apiGateway:
-    minimumCompressionSize: 0
-    shouldStartNameWithService: false
-    disableDefaultEndpoint: true
-  apiName: ${self:provider.stage}-${self:service}
-  stackTags:
-    Environment: ${self:provider.stage}
-    Project: ${self:service}
-    Service: ${self:service}
-    Serverless: 'true'
-  tags:
-    # For Datadog APM
-    env: ${self:provider.stage}
-    service: xxxxxx
+    lambda: false
+    apiGateway: false
+  logRetentionInDays: 3
   environment:
     ENVIRONMENT: ${self:provider.stage}
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1'
@@ -50,89 +27,10 @@ provider:
           Resource:
             - '*'
 
-        - Effect: 'Allow'
-          Action:
-            - 'kms:CreateGrant'
-            - 'kms:Decrypt'
-            - 'kms:Encrypt'
-            - 'kms:GenerateDataKey'
-          Resource:
-            - 'arn:aws:kms:*:*:key/${ssm:/${self:provider.stage}/kms_key_id}'
-
-package:
-  artifact: artifact.zip
-
-plugins:
-  - serverless-associate-waf
-  - serverless-iam-roles-per-function
-  - serverless-tag-cloud-watch-log-groups
-  - '@shelf/serverless-simplify-default-exec-role-plugin'
-
-custom:
-  associateWaf:
-    name: ${env:ENVIRONMENT}-regional-generic-owasp-acl
-    version: V2
-  serverless-iam-roles-per-function:
-    defaultInherit: true
-  cloudWatchLogsTags:
-    Environment: ${env:ENVIRONMENT}
-    Project: ${self:service}
-
 functions:
-  sampleLambda:
-    handler: lib/sample-lambda/handler.handler
-    name: ${self:provider.stage}-${self:service}-sampleLambda
-    tags:
-      name: sampleLambda
+  process:
+    handler: lib/process/handler.handler
     events:
-      - http:
-          path: /{id}
-          method: post
-          integration: lambda-proxy
-          cors: true
-          authorizer:
-            arn: ${ssm:/${env:ENVIRONMENT}/auth/lambda_authorizers/all_arn}
-            resultTtlInSeconds: 0
-          request:
-            parameters:
-              paths:
-                id: true
-    iamRoleStatements:
-      - Effect: 'Allow'
-        Action:
-          - 'dynamodb:BatchWriteItem'
-          - 'dynamodb:Query'
-          - 'dynamodb:UpdateItem'
-        Resource:
-          - 'arn:aws:dynamodb:*:*:table/${self:provider.stage}_gems_xxxxxx'
-
-resources:
-  Resources:
-    ApiGatewayRestApi:
-      Type: AWS::ApiGateway::RestApi
-      Properties:
-        Name: ${self:provider.stage}-${self:service}
-    GatewayResponseDefault4XX:
-      Type: 'AWS::ApiGateway::GatewayResponse'
-      Properties:
-        RestApiId:
-          Ref: 'ApiGatewayRestApi'
-        ResponseType: DEFAULT_4XX
-        ResponseParameters:
-          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
-          gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
-          gatewayresponse.header.Access-Control-Allow-Methods: "'*'"
-        ResponseTemplates:
-          application/json: '{"message":$context.error.messageString}'
-    GatewayResponseDefault5XX:
-      Type: 'AWS::ApiGateway::GatewayResponse'
-      Properties:
-        RestApiId:
-          Ref: 'ApiGatewayRestApi'
-        ResponseType: DEFAULT_5XX
-        ResponseParameters:
-          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
-          gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
-          gatewayresponse.header.Access-Control-Allow-Methods: "'*'"
-        ResponseTemplates:
-          application/json: '{"message":$context.error.messageString}'
+      - sqs:
+          arn: arn:aws:sqs:us-east-1:494014222317:requests
+          batchSize: 1
