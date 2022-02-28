@@ -29,3 +29,4 @@ draft.js
 
 local.auto.tfvars
 terraform.tfstate
+artifact.zip
