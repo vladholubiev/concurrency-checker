@@ -31,3 +31,4 @@ local.auto.tfvars
 terraform.tfstate
 artifact.zip
 .terraform.tfstate.lock.info
+.terraform
