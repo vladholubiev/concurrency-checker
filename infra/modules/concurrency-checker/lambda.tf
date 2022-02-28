@@ -9,6 +9,7 @@ resource "aws_lambda_function" "process" {
   memory_size      = 1024
   timeout          = 60
   publish          = true
+  architectures    = ["arm64"]
 }
 
 resource "aws_lambda_event_source_mapping" "process" {
