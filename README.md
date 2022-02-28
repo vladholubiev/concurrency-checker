@@ -18,12 +18,36 @@ yarn
 
 ```shell
 cd infra
-tf init
-tf apply
+```
+
+Create a `local.auto.tfvars` file inside the `infra` folder like this:
+
+```hcl
+access_key = "xxx"
+secret_key = "yyy"
+```
+
+And finally deploy:
+
+```shell
+terraform init
+terraform apply
 ```
 
 # Dispatch targets
 
 ```shell
+export AWS_ACCESS_KEY_ID=xxx
+export AWS_SECRET_ACCESS_KEY=yyy
+
 ts-node send-to-sqs.ts
+```
+
+# Print stats for all regions
+
+```shell
+export AWS_ACCESS_KEY_ID=xxx
+export AWS_SECRET_ACCESS_KEY=yyy
+
+ts-node print-sqs-stats.ts
 ```
