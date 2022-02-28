@@ -68,3 +68,8 @@ export AWS_ACC_ID=111
 
 ts-node sqs-purge.ts
 ```
+
+# Redeploy Lambda code changes
+
+1. Repeat steps in `Create artifact.zip`
+2. Repeat steps in `Deploy`
