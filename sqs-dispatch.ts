@@ -40,13 +40,9 @@ const payload = {
     'sec-ch-ua-platform': '"macOS"',
     'sec-fetch-dest': 'document',
     'sec-fetch-mode': 'navigate',
-    'sec-fetch-site': 'same-origin',
+    'sec-fetch-site': 'none',
     'sec-fetch-user': '?1',
     'upgrade-insecure-requests': '1',
-    cookie:
-      'localize=ru; gatetype=IC; localize=ru; CLIENTUUID=47D1434A89314F4D9F1F4A3931E8041E; JSESSIONID=40D74AEA646C772F4AD7EE0707EB108C',
-    Referer: 'https://my.crb-dnr.ru/rich/auth',
-    'Referrer-Policy': 'strict-origin-when-cross-origin',
   },
 };
 
@@ -57,7 +53,7 @@ const payload = {
       const sqs = new AWS.SQS({region});
 
       await pMap(
-        times(1000),
+        times(100),
         async () => {
           await sqs
             .sendMessage({
