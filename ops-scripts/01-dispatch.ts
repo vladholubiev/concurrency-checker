@@ -1,8 +1,9 @@
 import pMap from 'p-map';
+import type {SQSPayload} from '../types';
 import {REGIONS} from './aws-regions';
 import {dispatchPayloadToSQS} from './sqs-helpers';
 
-const payload = {
+const payload: SQSPayload = {
   requestTarget: {
     url: `https://d285w2zwn30rpq.cloudfront.net/`,
     method: 'GET',
@@ -16,6 +17,7 @@ const payload = {
 };
 
 const PAYLOAD_MULTIPLIER = 100;
+let totalRequestsDispatched = 0;
 
 (async () => {
   await pMap(
@@ -30,7 +32,9 @@ const PAYLOAD_MULTIPLIER = 100;
         }
       );
 
-      console.log(`${region}: dispatched`);
+      totalRequestsDispatched += PAYLOAD_MULTIPLIER * payload.repeatTimes;
+
+      console.log(`${region}: dispatched ${totalRequestsDispatched} requests to make`);
     },
     {concurrency: 10, stopOnError: false}
   );

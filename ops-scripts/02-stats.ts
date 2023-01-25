@@ -6,9 +6,9 @@ import {getQueueAttributes} from './sqs-helpers';
   await pMap(
     REGIONS,
     async region => {
-      const resp = await getQueueAttributes(region);
+      const {Attributes} = await getQueueAttributes(region);
 
-      console.log(`${region}: ${resp.Attributes?.ApproximateNumberOfMessages}`);
+      console.log(`${region}: ${Attributes?.ApproximateNumberOfMessages}`);
     },
     {concurrency: 10, stopOnError: false}
   );

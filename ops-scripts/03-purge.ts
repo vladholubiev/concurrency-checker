@@ -8,9 +8,9 @@ import {getQueueAttributes, purgeQueue} from './sqs-helpers';
     async region => {
       await purgeQueue(region);
 
-      const resp = await getQueueAttributes(region);
+      const {Attributes} = await getQueueAttributes(region);
 
-      console.log(`${region}: ${resp.Attributes?.ApproximateNumberOfMessages}`);
+      console.log(`${region}: ${Attributes?.ApproximateNumberOfMessages}`);
     },
     {concurrency: 10, stopOnError: false}
   );
