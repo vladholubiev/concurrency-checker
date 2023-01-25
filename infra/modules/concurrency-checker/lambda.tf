@@ -7,7 +7,7 @@ resource "aws_lambda_function" "process" {
   runtime          = "nodejs18.x"
   handler          = "lib/process/handler.handler"
   memory_size      = 128
-  timeout          = 10
+  timeout          = 12
   publish          = false
 }
 
