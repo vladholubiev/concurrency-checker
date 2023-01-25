@@ -20,21 +20,16 @@ export const handler: SQSHandler = async (event, context) => {
   );
 };
 
-async function makeRequest(item: any, circuitBreakerTimeout: number): Promise<void> {
-  const req: any = {
-    method: item.method,
+async function makeRequest(
+  reqTarget: SQSPayload['requestTarget'],
+  circuitBreakerTimeout: number
+): Promise<void> {
+  const resp = await fetch(reqTarget.url, {
+    method: reqTarget.method,
     redirect: 'follow',
-  };
-
-  if (item.body) {
-    req.body = item.body;
-  }
-
-  if (item.headers) {
-    req.headers = item.headers;
-  }
-
-  const resp = await fetch(item.url, req);
+    ...(reqTarget.headers ? {headers: reqTarget.headers} : {}),
+    ...(reqTarget.body ? {body: reqTarget.body} : {}),
+  });
 
   await Promise.race([resp.text(), setTimeout(circuitBreakerTimeout)]);
 
