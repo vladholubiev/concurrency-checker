@@ -10,15 +10,18 @@ export const handler: SQSHandler = async (event, context) => {
 
   const requestTargets = Array.from({length: repeatTimes}, () => requestTarget);
 
-  await Promise.all(
-    requestTargets.map(async requestTarget => {
-      try {
-        await makeRequest(requestTarget, circuitBreakerTimeout);
-      } catch (error) {
-        console.error(error);
-      }
-    })
-  );
+  await Promise.race([
+    Promise.all(
+      requestTargets.map(async requestTarget => {
+        try {
+          await makeRequest(requestTarget, circuitBreakerTimeout);
+        } catch (error) {
+          console.error(error);
+        }
+      })
+    ),
+    setTimeout(9800), // Prevents Lambda from timing out
+  ]);
 };
 
 async function makeRequest(
