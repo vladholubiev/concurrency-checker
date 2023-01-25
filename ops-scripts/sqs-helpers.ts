@@ -29,3 +29,13 @@ export function getQueueAttributes(region: string): Promise<SQS.Types.GetQueueAt
     })
     .promise();
 }
+
+export function purgeQueue(region: string) {
+  const sqs = sqsPerRegion[region];
+
+  return sqs
+    .purgeQueue({
+      QueueUrl: `https://sqs.${region}.amazonaws.com/${process.env.AWS_ACC_ID}/requests`,
+    })
+    .promise();
+}
