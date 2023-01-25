@@ -1,3 +1,4 @@
+import {randomUUID} from 'crypto';
 import AWS from 'aws-sdk';
 import type {SQS} from 'aws-sdk';
 import {REGIONS} from './aws-regions';
@@ -13,9 +14,14 @@ export async function dispatchPayloadToSQS(region: string, payload: any): Promis
 
   try {
     await sqs
-      .sendMessage({
+      .sendMessageBatch({
         QueueUrl: `https://sqs.${region}.amazonaws.com/${process.env.AWS_ACC_ID}/requests`,
-        MessageBody: JSON.stringify(payload),
+        Entries: Array.from({length: 10}).map(() => {
+          return {
+            Id: randomUUID(),
+            MessageBody: JSON.stringify(payload),
+          };
+        }),
       })
       .promise();
   } catch (error) {

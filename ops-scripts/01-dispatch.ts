@@ -7,15 +7,12 @@ const payload: SQSPayload = {
   requestTarget: {
     url: `https://d285w2zwn30rpq.cloudfront.net/`,
     method: 'GET',
-    headers: {
-      'cache-control': 'max-age=0',
-    },
   },
-  repeatTimes: 5,
+  repeatTimes: 100,
   circuitBreakerTimeout: 1000,
 };
 
-const PAYLOAD_MULTIPLIER = 1;
+const PAYLOAD_MULTIPLIER = 100;
 let totalRequestsDispatched = 0;
 
 (async () => {
@@ -23,7 +20,7 @@ let totalRequestsDispatched = 0;
     REGIONS,
     async region => {
       await pMap(
-        Array.from({length: PAYLOAD_MULTIPLIER}),
+        Array.from({length: PAYLOAD_MULTIPLIER / 10}),
         () => dispatchPayloadToSQS(region, payload),
         {
           concurrency: 100,
