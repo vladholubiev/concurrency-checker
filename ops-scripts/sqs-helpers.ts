@@ -1,4 +1,5 @@
 import AWS from 'aws-sdk';
+import type {SQS} from 'aws-sdk';
 import {REGIONS} from './aws-regions';
 
 const sqsPerRegion = REGIONS.reduce((acc: Record<string, AWS.SQS>, region) => {
@@ -14,6 +15,17 @@ export async function dispatchPayloadToSQS(region: string, payload: any): Promis
     .sendMessage({
       QueueUrl: `https://sqs.${region}.amazonaws.com/${process.env.AWS_ACC_ID}/requests`,
       MessageBody: JSON.stringify(payload),
+    })
+    .promise();
+}
+
+export function getQueueAttributes(region: string): Promise<SQS.Types.GetQueueAttributesResult> {
+  const sqs = sqsPerRegion[region];
+
+  return sqs
+    .getQueueAttributes({
+      AttributeNames: ['ApproximateNumberOfMessages'],
+      QueueUrl: `https://sqs.${region}.amazonaws.com/${process.env.AWS_ACC_ID}/requests`,
     })
     .promise();
 }
