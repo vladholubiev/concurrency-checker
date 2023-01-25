@@ -47,8 +47,22 @@ provider "aws" {
 }
 
 provider "aws" {
+  region     = "ap-south-2"
+  alias      = "ap_south_2"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
   region     = "ap-southeast-3"
   alias      = "ap_southeast_3"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "ap-southeast-4"
+  alias      = "ap_southeast_4"
   access_key = var.access_key
   secret_key = var.secret_key
 }
@@ -145,8 +159,29 @@ provider "aws" {
 }
 
 provider "aws" {
+  region     = "eu-south-2"
+  alias      = "eu_south_2"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "eu-central-2"
+  alias      = "eu_central_2"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
   region     = "me-south-1"
   alias      = "me_south_1"
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+provider "aws" {
+  region     = "me-central-1"
+  alias      = "me_central_1"
   access_key = var.access_key
   secret_key = var.secret_key
 }
