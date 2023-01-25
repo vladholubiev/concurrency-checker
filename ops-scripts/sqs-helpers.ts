@@ -11,12 +11,16 @@ const sqsPerRegion = REGIONS.reduce((acc: Record<string, AWS.SQS>, region) => {
 export async function dispatchPayloadToSQS(region: string, payload: any): Promise<void> {
   const sqs = sqsPerRegion[region];
 
-  await sqs
-    .sendMessage({
-      QueueUrl: `https://sqs.${region}.amazonaws.com/${process.env.AWS_ACC_ID}/requests`,
-      MessageBody: JSON.stringify(payload),
-    })
-    .promise();
+  try {
+    await sqs
+      .sendMessage({
+        QueueUrl: `https://sqs.${region}.amazonaws.com/${process.env.AWS_ACC_ID}/requests`,
+        MessageBody: JSON.stringify(payload),
+      })
+      .promise();
+  } catch (error) {
+    console.error(error, region, payload);
+  }
 }
 
 export function getQueueAttributes(region: string): Promise<SQS.Types.GetQueueAttributesResult> {

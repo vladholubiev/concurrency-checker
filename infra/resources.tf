@@ -118,6 +118,14 @@ module "eu_central_1" {
   }
 }
 
+module "eu_central_2" {
+  source = "./modules/concurrency-checker"
+
+  providers = {
+    aws.primary = aws.eu_central_2
+  }
+}
+
 module "eu_west_1" {
   source = "./modules/concurrency-checker"
 
