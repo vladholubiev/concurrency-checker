@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf lib/ && babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts'",
-    "lint": "yarn lint:ci --fix",
+    "lint": "eslint . --ext .js,.ts,.json --fix",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"
   },
@@ -37,16 +37,15 @@
     "@shelf/babel-config": "1.2.0",
     "@shelf/eslint-config": "2.27.1",
     "@shelf/prettier-config": "1.0.0",
-    "@shelf/tsconfig": "0.0.6",
-    "@types/aws-lambda": "8.10.95",
-    "@types/jest": "27.5.0",
+    "@shelf/tsconfig": "0.0.9",
+    "@types/aws-lambda": "8.10.109",
     "@types/node": "16",
     "@types/node-fetch": "2.6.1",
     "aws-sdk": "2.1055.0",
-    "eslint": "8.11.0",
+    "eslint": "8.32.0",
     "husky": "7.0.4",
     "lint-staged": "12.3.5",
-    "prettier": "2.5.1",
-    "typescript": "4.6.3"
+    "prettier": "2.8.3",
+    "typescript": "4.9.4"
   }
 }
