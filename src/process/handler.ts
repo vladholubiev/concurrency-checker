@@ -1,17 +1,26 @@
-import type {SQSHandler} from 'aws-lambda';
+import {setTimeout} from 'timers/promises';
 import fetch from 'node-fetch';
 import pMap from 'p-map';
+import type {SQSHandler} from 'aws-lambda';
 
 export const handler: SQSHandler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
 
-  const info: any = JSON.parse(event.Records[0].body);
-  const data = Array.from({length: 10000}, () => info);
+  const {requestTarget, repeatTimes, concurrency, circuitBreakerTimeout}: any = JSON.parse(
+    event.Records[0].body
+  );
+  const requestTargets = Array.from({length: repeatTimes}, () => requestTarget);
 
-  await pMap(data, makeRequest, {concurrency: 500, stopOnError: false});
+  await pMap(
+    requestTargets,
+    async requestTarget => {
+      await makeRequest(requestTarget, circuitBreakerTimeout);
+    },
+    {concurrency: concurrency, stopOnError: false}
+  );
 };
 
-async function makeRequest(item: any): Promise<void> {
+async function makeRequest(item: any, circuitBreakerTimeout: number): Promise<void> {
   const req: any = {
     method: item.method,
     redirect: 'follow',
@@ -27,13 +36,7 @@ async function makeRequest(item: any): Promise<void> {
 
   const resp = await fetch(item.url, req);
 
-  await Promise.race([resp.text(), delay(1000)]);
+  await Promise.race([resp.text(), setTimeout(circuitBreakerTimeout)]);
 
   console.log(resp.status);
-}
-
-async function delay(ms: number): Promise<void> {
-  return new Promise(resolve => {
-    setTimeout(resolve, ms);
-  });
 }
