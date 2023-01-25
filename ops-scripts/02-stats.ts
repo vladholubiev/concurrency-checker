@@ -8,7 +8,12 @@ import {getQueueAttributes} from './sqs-helpers';
     async region => {
       const {Attributes} = await getQueueAttributes(region);
 
-      console.log(`${region}: ${Attributes?.ApproximateNumberOfMessages}`);
+      console.log(
+        `${region}: ${
+          Number(Attributes?.ApproximateNumberOfMessages) +
+          Number(Attributes?.ApproximateNumberOfMessagesNotVisible)
+        }`
+      );
     },
     {concurrency: 10, stopOnError: false}
   );

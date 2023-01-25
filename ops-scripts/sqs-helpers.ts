@@ -28,7 +28,7 @@ export function getQueueAttributes(region: string): Promise<SQS.Types.GetQueueAt
 
   return sqs
     .getQueueAttributes({
-      AttributeNames: ['ApproximateNumberOfMessages'],
+      AttributeNames: ['ApproximateNumberOfMessages', 'ApproximateNumberOfMessagesNotVisible'],
       QueueUrl: `https://sqs.${region}.amazonaws.com/${process.env.AWS_ACC_ID}/requests`,
     })
     .promise();
