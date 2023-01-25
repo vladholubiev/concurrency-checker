@@ -11,7 +11,7 @@ export const handler: SQSHandler = async (event, context) => {
   const requestTargets = Array.from({length: repeatTimes}, () => requestTarget);
 
   await Promise.race([
-    setTimeout(9000), // Prevents Lambda from timing out
+    setTimeout(context.getRemainingTimeInMillis() - 1000), // Prevents Lambda from timing out
     Promise.all(
       requestTargets.map(async requestTarget => {
         try {
