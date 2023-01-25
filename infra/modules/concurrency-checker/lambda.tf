@@ -6,8 +6,8 @@ resource "aws_lambda_function" "process" {
   role             = aws_iam_role.main.arn
   runtime          = "nodejs18.x"
   handler          = "lib/process/handler.handler"
-  memory_size      = 1024
-  timeout          = 60
+  memory_size      = 128
+  timeout          = 10
   publish          = false
 }
 

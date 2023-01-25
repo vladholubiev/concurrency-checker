@@ -11,12 +11,12 @@ const payload: SQSPayload = {
       'cache-control': 'max-age=0',
     },
   },
-  repeatTimes: 100,
+  repeatTimes: 5,
   concurrency: 100,
   circuitBreakerTimeout: 1000,
 };
 
-const PAYLOAD_MULTIPLIER = 100;
+const PAYLOAD_MULTIPLIER = 1;
 let totalRequestsDispatched = 0;
 
 (async () => {
