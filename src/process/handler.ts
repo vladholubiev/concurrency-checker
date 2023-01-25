@@ -11,23 +11,20 @@ export const handler: SQSHandler = async (event, context) => {
   const requestTargets = Array.from({length: repeatTimes}, () => requestTarget);
 
   await Promise.race([
+    setTimeout(9000), // Prevents Lambda from timing out
     Promise.all(
       requestTargets.map(async requestTarget => {
         try {
-          await makeRequest(requestTarget, circuitBreakerTimeout);
+          await Promise.race([makeRequest(requestTarget), setTimeout(circuitBreakerTimeout)]);
         } catch (error) {
           console.error(error);
         }
       })
     ),
-    setTimeout(9800), // Prevents Lambda from timing out
   ]);
 };
 
-async function makeRequest(
-  reqTarget: SQSPayload['requestTarget'],
-  circuitBreakerTimeout: number
-): Promise<void> {
+async function makeRequest(reqTarget: SQSPayload['requestTarget']): Promise<void> {
   const resp = await fetch(reqTarget.url, {
     method: reqTarget.method,
     redirect: 'follow',
@@ -35,7 +32,7 @@ async function makeRequest(
     ...(reqTarget.body ? {body: reqTarget.body} : {}),
   });
 
-  await Promise.race([resp.text(), setTimeout(circuitBreakerTimeout)]);
+  await resp.text();
 
   console.log(resp.status);
 }

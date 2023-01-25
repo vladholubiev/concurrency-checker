@@ -17,8 +17,4 @@ resource "aws_lambda_event_source_mapping" "process" {
   function_name          = aws_lambda_function.process.arn
   batch_size             = 1
   maximum_retry_attempts = 0
-
-  scaling_config {
-    maximum_concurrency = 100
-  }
 }
