@@ -1,5 +1,4 @@
 import {setTimeout} from 'timers/promises';
-import fetch from 'node-fetch';
 import pMap from 'p-map';
 import type {SQSHandler} from 'aws-lambda';
 
