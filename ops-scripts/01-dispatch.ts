@@ -12,7 +12,7 @@ const payload: SQSPayload = {
   circuitBreakerTimeout: 1000,
 };
 
-const PAYLOAD_MULTIPLIER = 100;
+const PAYLOAD_MULTIPLIER = 500;
 let totalRequestsDispatched = 0;
 
 (async () => {

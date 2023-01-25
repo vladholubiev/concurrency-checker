@@ -43,7 +43,7 @@ terraform apply
 
 # Dispatch targets
 
-Modify URLs in the `ops-scripts/sqs-dispatch.ts` file. Then:
+Modify the target URL and number of requests in the `ops-scripts/sqs-dispatch.ts` file. Then:
 
 ```shell
 export AWS_ACCESS_KEY_ID=xxx
@@ -55,22 +55,26 @@ ts-node ops-scripts/sqs-dispatch.ts
 
 # Print stats for all regions
 
+Shows how many requests are still in flight.
+
 ```shell
 export AWS_ACCESS_KEY_ID=xxx
 export AWS_SECRET_ACCESS_KEY=yyy
 export AWS_ACC_ID=111
 
-ts-node sqs-stats.ts
+ts-node ops-scripts/sqs-stats.ts
 ```
 
 # Purge all queues
 
+Emergency script to purge all SQS queues to stop Lambdas running.
+
 ```shell
 export AWS_ACCESS_KEY_ID=xxx
 export AWS_SECRET_ACCESS_KEY=yyy
 export AWS_ACC_ID=111
 
-ts-node sqs-purge.ts
+ts-node ops-scripts/sqs-purge.ts
 ```
 
 # Redeploy Lambda code changes
