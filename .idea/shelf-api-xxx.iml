@@ -2,6 +2,9 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.serverless" />
+      <excludeFolder url="file://$MODULE_DIR$/infra/.terraform" />
+      <excludeFolder url="file://$MODULE_DIR$/lib" />
       <excludePattern pattern="junit.xml" />
     </content>
     <orderEntry type="inheritedJdk" />

@@ -20,8 +20,8 @@ rm -rf node_modules
 yarn --prod
 
 zip --quiet -r --exclude="node_modules/aws-sdk/\*" \
-artifact.zip \
-lib node_modules
+  artifact.zip \
+  lib node_modules
 
 yarn
 ```
