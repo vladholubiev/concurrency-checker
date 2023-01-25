@@ -14,15 +14,8 @@ done
 
 ```shell
 yarn build
-
-rm -rf node_modules
 rm artifact.zip
-
-yarn --prod
-
 zip --quiet -r artifact.zip lib
-
-yarn
 ```
 
 # Deploy
