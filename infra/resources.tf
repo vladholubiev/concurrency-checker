@@ -173,3 +173,35 @@ module "sa_east_1" {
     aws.primary = aws.sa_east_1
   }
 }
+
+module "ap_south_2" {
+  source = "./modules/concurrency-checker"
+
+  providers = {
+    aws.primary = aws.ap_south_2
+  }
+}
+
+module "ap_southeast_4" {
+  source = "./modules/concurrency-checker"
+
+  providers = {
+    aws.primary = aws.ap_southeast_4
+  }
+}
+
+module "eu_south_2" {
+  source = "./modules/concurrency-checker"
+
+  providers = {
+    aws.primary = aws.eu_south_2
+  }
+}
+
+module "me_central_1" {
+  source = "./modules/concurrency-checker"
+
+  providers = {
+    aws.primary = aws.me_central_1
+  }
+}
