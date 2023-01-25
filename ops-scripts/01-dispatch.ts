@@ -1,6 +1,6 @@
-import AWS from 'aws-sdk';
 import pMap from 'p-map';
 import {REGIONS} from './aws-regions';
+import {dispatchPayloadToSQS} from './sqs-helpers';
 
 const payload = {
   requestTarget: {
@@ -15,23 +15,19 @@ const payload = {
   circuitBreakerTimeout: 1000,
 };
 
+const PAYLOAD_MULTIPLIER = 100;
+
 (async () => {
   await pMap(
     REGIONS,
     async region => {
-      const sqs = new AWS.SQS({region});
-
       await pMap(
-        Array.from({length: 100}),
-        async () => {
-          await sqs
-            .sendMessage({
-              QueueUrl: `https://sqs.${region}.amazonaws.com/${process.env.AWS_ACC_ID}/requests`,
-              MessageBody: JSON.stringify(payload),
-            })
-            .promise();
-        },
-        {concurrency: 100, stopOnError: false}
+        Array.from({length: PAYLOAD_MULTIPLIER}),
+        () => dispatchPayloadToSQS(region, payload),
+        {
+          concurrency: 100,
+          stopOnError: false,
+        }
       );
 
       console.log(`${region}: dispatched`);

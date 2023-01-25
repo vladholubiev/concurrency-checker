@@ -51,14 +51,14 @@ terraform apply
 
 # Dispatch targets
 
-Modify URLs in the `sqs-dispatch.ts` file. Then:
+Modify URLs in the `ops-scripts/sqs-dispatch.ts` file. Then:
 
 ```shell
 export AWS_ACCESS_KEY_ID=xxx
 export AWS_SECRET_ACCESS_KEY=yyy
 export AWS_ACC_ID=111
 
-ts-node sqs-dispatch.ts
+ts-node ops-scripts/sqs-dispatch.ts
 ```
 
 # Print stats for all regions
