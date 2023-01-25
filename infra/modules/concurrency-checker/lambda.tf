@@ -12,10 +12,11 @@ resource "aws_lambda_function" "process" {
 }
 
 resource "aws_lambda_event_source_mapping" "process" {
-  provider         = aws.primary
-  event_source_arn = aws_sqs_queue.requests.arn
-  function_name    = aws_lambda_function.process.arn
-  batch_size       = 1
+  provider               = aws.primary
+  event_source_arn       = aws_sqs_queue.requests.arn
+  function_name          = aws_lambda_function.process.arn
+  batch_size             = 1
+  maximum_retry_attempts = 0
 
   scaling_config {
     maximum_concurrency = 100
