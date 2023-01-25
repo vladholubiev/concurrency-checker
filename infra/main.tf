@@ -61,10 +61,11 @@ provider "aws" {
 }
 
 provider "aws" {
-  region     = "ap-southeast-4"
-  alias      = "ap_southeast_4"
-  access_key = var.access_key
-  secret_key = var.secret_key
+  region                 = "ap-southeast-4"
+  alias                  = "ap_southeast_4"
+  access_key             = var.access_key
+  secret_key             = var.secret_key
+  skip_region_validation = true
 }
 
 provider "aws" {
