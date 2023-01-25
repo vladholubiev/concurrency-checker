@@ -16,6 +16,7 @@ done
 yarn build
 
 rm -rf node_modules
+rm artifact.zip
 
 yarn --prod
 

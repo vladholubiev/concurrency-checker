@@ -6,6 +6,5 @@ export type SQSPayload = {
     body?: string;
   };
   repeatTimes: number;
-  concurrency: number;
   circuitBreakerTimeout: number;
 };

@@ -12,7 +12,6 @@ const payload: SQSPayload = {
     },
   },
   repeatTimes: 5,
-  concurrency: 100,
   circuitBreakerTimeout: 1000,
 };
 

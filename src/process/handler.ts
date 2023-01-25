@@ -1,22 +1,23 @@
 import {setTimeout} from 'timers/promises';
-import pMap from 'p-map';
 import type {SQSHandler} from 'aws-lambda';
 import type {SQSPayload} from '../../types';
 
 export const handler: SQSHandler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
 
-  const {requestTarget, repeatTimes, concurrency, circuitBreakerTimeout}: any = JSON.parse(
-    event.Records[0].body
-  ) as SQSPayload;
+  const sqsPayload = event.Records[0].body;
+  const {requestTarget, repeatTimes, circuitBreakerTimeout} = JSON.parse(sqsPayload) as SQSPayload;
+
   const requestTargets = Array.from({length: repeatTimes}, () => requestTarget);
 
-  await pMap(
-    requestTargets,
-    async requestTarget => {
-      await makeRequest(requestTarget, circuitBreakerTimeout);
-    },
-    {concurrency: concurrency, stopOnError: false}
+  await Promise.all(
+    requestTargets.map(async requestTarget => {
+      try {
+        await makeRequest(requestTarget, circuitBreakerTimeout);
+      } catch (error) {
+        console.error(error);
+      }
+    })
   );
 };
 
